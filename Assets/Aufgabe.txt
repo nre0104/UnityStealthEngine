@@ -1,0 +1,57 @@
+Lösen Sie mindestens 2 der 3 folgenden Aufgaben.
+
+Erstellen Sie für die Abgabe ein kurzes Video (30-60s), welches die Ergebnisse zeigt. Geben Sie das Projekt (gerne auch als Link) und einen Link zum Video ab.
+
+
+1) Build & Destroy
+
+Erweitern Sie den Prototyp aus der Vorlesung (HL3) um ein Build & Destroy-System. Dieses soll grundlegend so funktionieren wie in Fortnite Battle Royal: Sie können mindestens Boden, Wände und Rampen platzieren. Die zu platzierenden Teile sollen vor der Platzierung semi-transparent dargestellt werden.
+
+Fügen Sie dem Prototyp eine Schuss-Mechanik hinzu. Mit dieser können Sie Gegenstände und auch die selbst gebauten Elemente zerstören. Die Elemente nehmen dabei Schaden und werden ab einer bestimmten Menge Schaden zerstört. Optional brechen die Gebilde zusammen sobald sie nicht mehr fest mit dem Boden oder anderen feststehenden Objekten verbunden sind. Auch die Bomben sollen schaden anrichten, je nachdem wie weit diese vom Objekt entferrnt explodieren.
+
+Optional: Verwenden Sie wie bei Fortnite eine 3rd-Person-Ansicht. Sie können dazu fertige, kostenlose Pakete aus dem Asset Store einsetzen. Dabei ist es nicht unbedingt erforderlich, dass alle Aktionen (Schießen, Bauen, ...) auch animiert sind.
+
+
+2) Multiplayer
+
+Erweitern Sie den Prototyp aus der Vorlesung (HL3) um Networkingfunktionalität. Spieler treten hier gegeneinander an und können durch Schüsse oder Bomben Schaden nehmen. 
+Nach dem Ausscheiden ist ein Respawn möglich.
+
+Verwenden Sie PUN2 (Photon Unity Networking).
+
+App Store Link:
+
+https://assetstore.unity.com/packages/tools/network/pun-2-free-119922
+
+Doku + Tutorial:
+
+https://doc.photonengine.com/en-us/pun/v2/demos-and-tutorials/pun-basics-tutorial/intro
+
+
+3) Leveldesign
+
+Bauen Sie mit ProBuilder einen Level für den Prototyp aus der Vorlesung. Der Level soll demonstrieren, dass Sie in der Lage sind, mit den Tools von ProBuilder (Objekte erstellen, Extrude, Inset, Polygon Editing, ....) komplexe Strukturen zu erstellen. Es steht Ihnen frei einen Innen- oder eine Außenlevel zu bauen oder beides zu kombinieren.
+
+ProBuilder wurde von Gabriel Williams entwickelt, von Unity Technologies gekauft und wird momentan in den Unity Editor integriert. Sie können ProBuilder über den Paketmanager installieren. Auf Youtube finden Sie zahlreiche Tutorials.
+
+
+Überblick:
+
+https://www.youtube.com/watch?v=HUeQeSB45PI
+
+
+Tutorials:
+
+Erste Schritte:
+https://www.youtube.com/watch?v=Ta3HkV_qHTc&t=4s
+
+Interior FPS-Level:
+https://www.youtube.com/watch?v=dYBOBgfcTgY
+
+Structures with Exterior and Interior:
+https://www.youtube.com/watch?v=CBa_opm3_GM
+
+
+2018 Demo Reel:
+
+https://www.youtube.com/watch?time_continue=1&v=L3ML0EZqh6s
