@@ -27,8 +27,8 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
 - Toolbox to quick build an new gadget of the basic principles
 
 ## Could have
-- Enemies (KIs) which see, hear and register changes in the environment (dead bodies, ...)
-The sandbox conatins no weapons to kill enemies
+- Enemies (KIs) which see, hear and register changes in the environment (dead bodies, ...) --> The sandbox contains no weapons to kill enemies
+- "Events" which alert the enemies
 - Thermal vision
 - Gadget that enables thermal vision
 - Gadget for fake thermal object
