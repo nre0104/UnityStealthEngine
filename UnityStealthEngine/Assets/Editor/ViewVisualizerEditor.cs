@@ -15,5 +15,11 @@ public class ViewVisualizerEditor : Editor
 
         Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleA * viewVisualizer.ViewRadius);
         Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleB * viewVisualizer.ViewRadius);
+
+        Handles.color = Color.red;
+        foreach (Transform visibleTargets in viewVisualizer.visibleTargets)
+        {
+            Handles.DrawLine(viewVisualizer.transform.position, visibleTargets.position);
+        }
     }
 }
