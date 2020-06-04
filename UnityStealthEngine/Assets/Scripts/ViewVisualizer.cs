@@ -14,8 +14,10 @@ public class ViewVisualizer : MonoBehaviour
     [HideInInspector]
     public List<Transform> visibleTargets = new List<Transform>();
 
-    public bool visualizeViewInScene = true;
+    public bool visualizeInSceneView = true;
+    public bool visualize2D = false;        // TODO: If true visualize only on ground (via Raycast)
     public float MeshResolution;
+    public int edgeResovleIterations;
 
     public MeshFilter ViewMeshFilter;
     private Mesh viewMesh;
@@ -70,15 +72,34 @@ public class ViewVisualizer : MonoBehaviour
         int stepCount = Mathf.RoundToInt(ViewAngle * MeshResolution);
         float stepAngleSize = ViewAngle / stepCount;
         List<Vector3> viewPoints = new List<Vector3>();
+        ViewCastInfo oldViewCastInfo = new ViewCastInfo();
 
         for (int i = 0; i <= stepCount; i++)
         {
-            float angle = transform.eulerAngles.y - ViewAngle/2 + stepAngleSize * i;
-
-            if (visualizeViewInScene)
+            if (visualizeInSceneView)
             {
+                float angle = transform.eulerAngles.y - ViewAngle / 2 + stepAngleSize * i;
                 ViewCastInfo newViewCastInfo = ViewCast(angle);
+
+                if (i > 0)
+                {
+                    if (oldViewCastInfo.hit != newViewCastInfo.hit)
+                    {
+                        EdgeInfo edge = FindEdge(oldViewCastInfo, newViewCastInfo);
+
+                        if (edge.PointA != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.PointA);
+                        }
+                        if (edge.PointB != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.PointB);
+                        }
+                    }
+                }
+
                 viewPoints.Add(newViewCastInfo.endPoint);
+                oldViewCastInfo = newViewCastInfo;
             }
         }
 
@@ -103,6 +124,33 @@ public class ViewVisualizer : MonoBehaviour
         viewMesh.vertices = verticies;
         viewMesh.triangles = triangles;
         viewMesh.RecalculateNormals();
+    }
+
+    EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
+    {
+        float minAngle = minViewCast.angle;
+        float maxAngle = maxViewCast.angle;
+        Vector3 minPoint = minViewCast.endPoint;
+        Vector3 maxPoint = maxViewCast.endPoint;
+
+        for (int i = 0; i < edgeResovleIterations; i++)
+        {
+            float angle = (minAngle + maxAngle) / 2;
+            ViewCastInfo newViewCast = ViewCast(angle);
+
+            if (newViewCast.hit == minViewCast.hit)
+            {
+                minAngle = angle;
+                minPoint = newViewCast.endPoint;
+            }
+            else
+            {
+                maxAngle = angle;
+                maxPoint = newViewCast.endPoint;
+            }
+        }
+
+        return new EdgeInfo(minPoint, maxPoint);
     }
 
     ViewCastInfo ViewCast(float globalAngle)
@@ -142,6 +190,18 @@ public class ViewVisualizer : MonoBehaviour
             endPoint = _endPoint;
             dist = _dist;
             angle = _angle;
+        }
+    }
+
+    public struct EdgeInfo
+    {
+        public Vector3 PointA;
+        public Vector3 PointB;
+
+        public EdgeInfo(Vector3 _pointA, Vector3 _pointB)
+        {
+            PointA = _pointA;
+            PointB = _pointB;
         }
     }
 }
