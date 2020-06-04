@@ -18,6 +18,7 @@ public class ViewVisualizer : MonoBehaviour
     public bool visualize2D = false;        // TODO: If true visualize only on ground (via Raycast)
     public float MeshResolution;
     public int edgeResovleIterations;
+    public float edgeDistanceThreshhold;
 
     public MeshFilter ViewMeshFilter;
     private Mesh viewMesh;
@@ -72,20 +73,22 @@ public class ViewVisualizer : MonoBehaviour
         int stepCount = Mathf.RoundToInt(ViewAngle * MeshResolution);
         float stepAngleSize = ViewAngle / stepCount;
         List<Vector3> viewPoints = new List<Vector3>();
-        ViewCastInfo oldViewCastInfo = new ViewCastInfo();
+        ViewCastInfo oldViewCast = new ViewCastInfo();
 
         for (int i = 0; i <= stepCount; i++)
         {
             if (visualizeInSceneView)
             {
                 float angle = transform.eulerAngles.y - ViewAngle / 2 + stepAngleSize * i;
-                ViewCastInfo newViewCastInfo = ViewCast(angle);
+                ViewCastInfo newViewCast = ViewCast(angle);
 
                 if (i > 0)
                 {
-                    if (oldViewCastInfo.hit != newViewCastInfo.hit)
+                    bool edgeDistanceThreshHoldExceeded = Mathf.Abs(oldViewCast.dist - newViewCast.dist) > edgeDistanceThreshhold;
+
+                    if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThreshHoldExceeded))
                     {
-                        EdgeInfo edge = FindEdge(oldViewCastInfo, newViewCastInfo);
+                        EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
 
                         if (edge.PointA != Vector3.zero)
                         {
@@ -98,8 +101,8 @@ public class ViewVisualizer : MonoBehaviour
                     }
                 }
 
-                viewPoints.Add(newViewCastInfo.endPoint);
-                oldViewCastInfo = newViewCastInfo;
+                viewPoints.Add(newViewCast.endPoint);
+                oldViewCast = newViewCast;
             }
         }
 
@@ -138,7 +141,8 @@ public class ViewVisualizer : MonoBehaviour
             float angle = (minAngle + maxAngle) / 2;
             ViewCastInfo newViewCast = ViewCast(angle);
 
-            if (newViewCast.hit == minViewCast.hit)
+            bool edgeDistanceThreshHoldExceeded = Mathf.Abs(minViewCast.dist - newViewCast.dist) > edgeDistanceThreshhold;
+            if (newViewCast.hit == minViewCast.hit && !edgeDistanceThreshHoldExceeded)
             {
                 minAngle = angle;
                 minPoint = newViewCast.endPoint;
