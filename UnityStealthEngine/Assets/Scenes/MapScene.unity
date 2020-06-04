@@ -11015,8 +11015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a669937a6b550d419e421c4a8a6dafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewRadius: 15
-  ViewAngle: 115
+  viewRadius: 15
+  viewAngle: 120
   targetMask:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -11024,10 +11024,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   visibleTargets: []
-  MeshResolution: 10
-  edgeResovleIterations: 6
-  edgeDistanceThreshhold: 10
-  ViewMeshFilter: {fileID: 1828060448}
+  meshResolution: 10
+  edgeResolveIterations: 6
+  edgeDstThreshold: 0.5
+  viewMeshFilter: {fileID: 1828060448}
 --- !u!4 &347975516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2700874171910072505, guid: 330efb0e9eed825408809c121441b8a5,
@@ -66236,12 +66236,17 @@ PrefabInstance:
     - target: {fileID: 2700874171910072507, guid: 330efb0e9eed825408809c121441b8a5,
         type: 3}
       propertyPath: height
-      value: 2
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 2700874171910072507, guid: 330efb0e9eed825408809c121441b8a5,
         type: 3}
       propertyPath: defaultDistance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700874171910072507, guid: 330efb0e9eed825408809c121441b8a5,
+        type: 3}
+      propertyPath: lockCamera
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700874171910072509, guid: 330efb0e9eed825408809c121441b8a5,
         type: 3}
@@ -114711,7 +114716,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16248
+  m_Name: pb_Mesh16256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

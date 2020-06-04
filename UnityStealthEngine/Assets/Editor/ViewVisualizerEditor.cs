@@ -8,13 +8,13 @@ public class ViewVisualizerEditor : Editor
     {
         ViewVisualizer viewVisualizer = (ViewVisualizer)target;
         Handles.color = Color.white;
-        Handles.DrawWireArc(viewVisualizer.transform.position, Vector3.up, Vector3.forward, 360, viewVisualizer.ViewRadius);
+        Handles.DrawWireArc(viewVisualizer.transform.position, Vector3.up, Vector3.forward, 360, viewVisualizer.viewRadius);
 
-        Vector3 viewAngleA = viewVisualizer.DirFromAngle(-viewVisualizer.ViewAngle/2, null, false);
-        Vector3 viewAngleB = viewVisualizer.DirFromAngle(viewVisualizer.ViewAngle/2, null, false);
+        Vector3 viewAngleA = viewVisualizer.DirFromAngle(-viewVisualizer.viewAngle/2, false);
+        Vector3 viewAngleB = viewVisualizer.DirFromAngle(viewVisualizer.viewAngle/2, false);
 
-        Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleA * viewVisualizer.ViewRadius);
-        Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleB * viewVisualizer.ViewRadius);
+        Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleA * viewVisualizer.viewRadius);
+        Handles.DrawLine(viewVisualizer.transform.position, viewVisualizer.transform.position + viewAngleB * viewVisualizer.viewRadius);
 
         Handles.color = Color.red;
         foreach (Transform visibleTargets in viewVisualizer.visibleTargets)
