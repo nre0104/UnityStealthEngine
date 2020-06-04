@@ -14,8 +14,6 @@ public class ViewVisualizer : MonoBehaviour
     [HideInInspector]
     public List<Transform> visibleTargets = new List<Transform>();
 
-    public bool visualizeInSceneView = true;
-    public bool visualize2D = false;        // TODO: If true visualize only on ground (via Raycast)
     public float MeshResolution;
     public int edgeResovleIterations;
     public float edgeDistanceThreshhold;
@@ -77,27 +75,25 @@ public class ViewVisualizer : MonoBehaviour
 
         for (int i = 0; i <= stepCount; i++)
         {
-            if (visualizeInSceneView)
+
+            float angle = transform.eulerAngles.y - ViewAngle / 2 + stepAngleSize * i;
+            ViewCastInfo newViewCast = ViewCast(angle);
+
+            if (i > 0)
             {
-                float angle = transform.eulerAngles.y - ViewAngle / 2 + stepAngleSize * i;
-                ViewCastInfo newViewCast = ViewCast(angle);
+                bool edgeDistanceThreshholdExceeded = Mathf.Abs(oldViewCast.dist - newViewCast.dist) > edgeDistanceThreshhold;
 
-                if (i > 0)
+                if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThreshholdExceeded))
                 {
-                    bool edgeDistanceThreshHoldExceeded = Mathf.Abs(oldViewCast.dist - newViewCast.dist) > edgeDistanceThreshhold;
+                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
 
-                    if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThreshHoldExceeded))
+                    if (edge.PointA != Vector3.zero)
                     {
-                        EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
-
-                        if (edge.PointA != Vector3.zero)
-                        {
-                            viewPoints.Add(edge.PointA);
-                        }
-                        if (edge.PointB != Vector3.zero)
-                        {
-                            viewPoints.Add(edge.PointB);
-                        }
+                        viewPoints.Add(edge.PointA);
+                    }
+                    if (edge.PointB != Vector3.zero)
+                    {
+                        viewPoints.Add(edge.PointB);
                     }
                 }
 
@@ -159,7 +155,7 @@ public class ViewVisualizer : MonoBehaviour
 
     ViewCastInfo ViewCast(float globalAngle)
     {
-        Vector3 dir = DirFromAngle(globalAngle, true);
+        Vector3 dir = DirFromAngle(globalAngle, transform, true);
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, dir, out hit, ViewRadius, obstacleMask))
@@ -172,8 +168,13 @@ public class ViewVisualizer : MonoBehaviour
         }
     }
 
-    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    public Vector3 DirFromAngle(float angleInDegrees, Transform transform, bool angleIsGlobal)
     {
+        if (transform == null)
+        {
+            transform = gameObject.transform;
+        }
+
         if (!angleIsGlobal)
         {
             angleInDegrees += transform.eulerAngles.y;
