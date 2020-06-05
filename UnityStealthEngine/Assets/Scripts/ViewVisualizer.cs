@@ -22,11 +22,11 @@ public class ViewVisualizer : MonoBehaviour
 	public float edgeDstThreshold;
 
 	public MeshFilter viewMeshFilter;
-	Mesh viewMesh;
+    private Mesh viewMesh;
 
 	void Start()
-	{
-		viewMesh = new Mesh();
+    {
+        viewMesh = new Mesh();
 		viewMesh.name = "View Mesh";
 		viewMeshFilter.mesh = viewMesh;
 
