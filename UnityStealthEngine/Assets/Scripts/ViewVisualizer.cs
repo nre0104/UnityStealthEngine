@@ -67,6 +67,7 @@ public class ViewVisualizer : MonoBehaviour
 				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
 					// Found target
+					Debug.Log("Seen");
 					OnTargetFound.Invoke();
 
 					visibleTargets.Add(target);
