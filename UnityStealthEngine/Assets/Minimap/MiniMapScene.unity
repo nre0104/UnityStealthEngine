@@ -29930,6 +29930,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &608835272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7139256592660940728, guid: 694f8d83b8ab94d489fc5ec7e506ba29,
+    type: 3}
+  m_PrefabInstance: {fileID: 7139256593556732995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &608835276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608835272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c451cf123ec170347bf5e7ffa373aa2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617666223
 GameObject:
   m_ObjectHideFlags: 0
@@ -38171,6 +38189,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1642061126}
   m_RootOrder: 73
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &802869221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802869223}
+  - component: {fileID: 802869222}
+  m_Layer: 0
+  m_Name: Ping
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &802869222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802869221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3d4ac692f58394d8a8a13beab83c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pingLayer:
+    serializedVersion: 2
+    m_Bits: 570425344
+  pingRadius: 5
+  pingDuration: 2
+--- !u!4 &802869223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802869221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.75, y: 0.009765625, z: -24.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808721401
 GameObject:
@@ -114518,12 +114584,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 675132150}
-    - target: {fileID: 6225812845757763822, guid: 090861753c47949489c962d06beb12cc,
+    - target: {fileID: 6225812845757763816, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 332b88a1019d45148aa8c46d8f07c315,
-        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6225812845757763823, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -114539,6 +114604,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8200826213922056336, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090861753c47949489c962d06beb12cc, type: 3}
 --- !u!1001 &7139256593556732995
@@ -114548,12 +114618,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7139256592660940734, guid: 694f8d83b8ab94d489fc5ec7e506ba29,
+    - target: {fileID: 5073536652796603268, guid: 694f8d83b8ab94d489fc5ec7e506ba29,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 332b88a1019d45148aa8c46d8f07c315,
-        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 3758096439
+      objectReference: {fileID: 0}
     - target: {fileID: 7139256592660940735, guid: 694f8d83b8ab94d489fc5ec7e506ba29,
         type: 3}
       propertyPath: m_LocalScale.x
