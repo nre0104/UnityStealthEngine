@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /**
  * From Sebatian Lague's GitHub on https://github.com/SebLague/Field-of-View/blob/master/Episode%2002/Scripts/FieldOfView.cs
  */
+// TODO: View only scans ground --> player can't be found behind every Obj. the size of the Obj. doesn't matter
 public class ViewVisualizer : MonoBehaviour
 {
 	public float viewRadius;
@@ -22,16 +24,19 @@ public class ViewVisualizer : MonoBehaviour
 	public float edgeDstThreshold;
 
 	public MeshFilter viewMeshFilter;
-    private Mesh viewMesh;
+	Mesh viewMesh;
+
+    public UnityEvent OnTargetFound;
 
 	void Start()
-    {
-        viewMesh = new Mesh();
+	{
+		viewMesh = new Mesh();
 		viewMesh.name = "View Mesh";
 		viewMeshFilter.mesh = viewMesh;
 
 		StartCoroutine("FindTargetsWithDelay", .2f);
 	}
+
 
 	IEnumerator FindTargetsWithDelay(float delay)
 	{
@@ -56,16 +61,16 @@ public class ViewVisualizer : MonoBehaviour
 		{
 			Transform target = targetsInViewRadius[i].transform;
 			Vector3 dirToTarget = (target.position - transform.position).normalized;
-
 			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
 			{
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
-
 				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
 				{
-					Debug.Log("Visible: " + target.gameObject.name);
+					// Found target
+					OnTargetFound.Invoke();
+
 					visibleTargets.Add(target);
-				}
+                }
 			}
 		}
 	}
@@ -76,7 +81,6 @@ public class ViewVisualizer : MonoBehaviour
 		float stepAngleSize = viewAngle / stepCount;
 		List<Vector3> viewPoints = new List<Vector3>();
 		ViewCastInfo oldViewCast = new ViewCastInfo();
-
 		for (int i = 0; i <= stepCount; i++)
 		{
 			float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
@@ -85,11 +89,9 @@ public class ViewVisualizer : MonoBehaviour
 			if (i > 0)
 			{
 				bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstThreshold;
-
 				if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
 				{
 					EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
-
 					if (edge.pointA != Vector3.zero)
 					{
 						viewPoints.Add(edge.pointA);
@@ -99,8 +101,7 @@ public class ViewVisualizer : MonoBehaviour
 						viewPoints.Add(edge.pointB);
 					}
 				}
-
-			}
+            }
 
             viewPoints.Add(newViewCast.point);
 			oldViewCast = newViewCast;
@@ -111,7 +112,6 @@ public class ViewVisualizer : MonoBehaviour
 		int[] triangles = new int[(vertexCount - 2) * 3];
 
 		vertices[0] = Vector3.zero;
-
 		for (int i = 0; i < vertexCount - 1; i++)
 		{
 			vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
@@ -145,7 +145,6 @@ public class ViewVisualizer : MonoBehaviour
 			ViewCastInfo newViewCast = ViewCast(angle);
 
 			bool edgeDstThresholdExceeded = Mathf.Abs(minViewCast.dst - newViewCast.dst) > edgeDstThreshold;
-
 			if (newViewCast.hit == minViewCast.hit && !edgeDstThresholdExceeded)
 			{
 				minAngle = angle;
