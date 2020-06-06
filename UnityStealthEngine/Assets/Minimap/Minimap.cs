@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 
-public class Minimap : MonoBehaviour
+namespace Minimap 
 {
-    private static Minimap instance;
-    public static bool IsActive;
-
-    void Awake()
+    public class Minimap : MonoBehaviour
     {
-        instance = this;
-        if (instance.gameObject.activeSelf) IsActive = true;
-    }
+        private static Minimap instance;
+        public static bool IsActive;
 
-    public static void Show()
-    {
-        instance.gameObject.SetActive(true);
-        IsActive = true;
-    }
+        void Awake()
+        {
+            instance = this;
+            if (instance.gameObject.activeSelf) IsActive = true;
+        }
 
-    public static void Hide()
-    {
-        instance.gameObject.SetActive(false);
-        IsActive = false;
+        public static void Show()
+        {
+            instance.gameObject.SetActive(true);
+            IsActive = true;
+        }
+
+        public static void Hide()
+        {
+            instance.gameObject.SetActive(false);
+            IsActive = false;
+        }
     }
 }

@@ -1,24 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Minimap;
 
 public class GameManager : MonoBehaviour
 {
     void Start()
     {
-        Minimap.Hide();
+        Minimap.Minimap.Hide();
     }
 
    void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (Minimap.IsActive)
+            if (Minimap.Minimap.IsActive)
             {
-                Minimap.Hide();
-            } else if (!Minimap.IsActive)
+                Minimap.Minimap.Hide();
+            } else if (!Minimap.Minimap.IsActive)
             {
-                Minimap.Show();
+                Minimap.Minimap.Show();
             }
         }
     }
