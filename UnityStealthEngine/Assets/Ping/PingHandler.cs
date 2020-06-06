@@ -7,20 +7,20 @@ namespace Ping
 {
     public class PingHandler : MonoBehaviour
     {
-        private List<Transform> ActiveObjects = new List<Transform>();
-        public LayerMask pingLayer;
-        public float pingRadius;
-        public float pingDuration;
+        private readonly List<Transform> ActiveObjects = new List<Transform>();
+        public LayerMask PingLayer;
+        public float PingRadius;
+        public float PingDuration;
 
         private void Start()
         {
             Invoke("Ping", 3f);
-            Invoke("Hide", pingDuration);
+            Invoke("Hide", PingDuration);
         }
 
         public void Ping()
         {
-            Collider[] hitCollider = Physics.OverlapSphere(transform.position, pingRadius, pingLayer);
+            Collider[] hitCollider = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);
 
             foreach (Collider collider in hitCollider)
             {

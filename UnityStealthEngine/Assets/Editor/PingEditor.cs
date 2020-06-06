@@ -1,13 +1,22 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
+using Ping;
 
-[CustomEditor(typeof(Ping.PingHandler))]
+[CustomEditor(typeof(PingHandler))]
 public class PingEditor : Editor
 {
     void OnSceneGUI()
     {
-        Ping.PingHandler pingHandler = (Ping.PingHandler)target;
-        Handles.color = Color.white;
-        Handles.DrawWireArc(pingHandler.transform.position, Vector3.up, Vector3.forward, 360, pingHandler.pingRadius);
+        var pingHandler = (PingHandler)target;
+        if (pingHandler != null)
+        {
+            Handles.color = Color.white;
+            Handles.DrawWireArc(pingHandler.transform.position, Vector3.up, Vector3.forward, 360, pingHandler.PingRadius);
+        }
+        else
+        {
+            throw new ArgumentNullException(nameof(pingHandler));
+        }
     }
 }
