@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        Minimap.Hide();
     }
 
-    // Update is called once per frame
-    void Update()
+   void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (Minimap.IsActive)
+            {
+                Minimap.Hide();
+            } else if (!Minimap.IsActive)
+            {
+                Minimap.Show();
+            }
+        }
     }
 }
