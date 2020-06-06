@@ -78201,6 +78201,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1418016607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8161566276557101693, guid: 20ce1ccf22d913547a6b09acda7c30b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8161566275676106018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418016609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418016607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8050184d940b54646a76cc615c90daec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1420298402
 Mesh:
   m_ObjectHideFlags: 0
@@ -114296,50 +114314,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162069729}
     m_Modifications:
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_name
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Plr
-      objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108243, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: m_Name
       value: EnemyCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2746762806504108243, guid: 090861753c47949489c962d06beb12cc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108252, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
