@@ -4,13 +4,13 @@ using UnityEngine.Events;
 
 namespace Ping
 {
-    // TODO: Use custom Event to transport parameters (List of Pinged Objects)
     public class PingController : MonoBehaviour
     {
         public readonly List<GameObject> pingedObjects = new List<GameObject>();
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
+
         public UnityEvent OnPing;
         public UnityEvent OnUnPing;
 
@@ -33,12 +33,15 @@ namespace Ping
                 }
             }
 
-            OnPing.Invoke();
+            //OnPing.Invoke(pingedObjects);
         }
 
         public void UnPing()
         {
-            OnUnPing.Invoke();
+            //OnUnPing.Invoke(pingedObjects);
         }
     }
+    
+    [System.Serializable]
+    public class PingEvent : UnityEvent<List<GameObject>> { }
 }

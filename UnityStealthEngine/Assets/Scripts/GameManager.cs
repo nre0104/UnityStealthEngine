@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Minimap;
+using Ping;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
-
     public static List<GameObject> minimapIcons = new List<GameObject>();
+    public PingEvent pingEvent;
 
     private void Awake()
     {
