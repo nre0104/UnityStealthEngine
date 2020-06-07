@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using Minimap;
-using Ping;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
-    public static List<GameObject> minimapIcons = new List<GameObject>();
-    public PingEvent pingEvent;
+    private static readonly List<GameObject> AllMinimapIcons = new List<GameObject>();
+    public static readonly List<GameObject> PingedObjects = new List<GameObject>();
 
     private void Awake()
     {
@@ -20,18 +19,20 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
         foreach (var minimapIconController in FindObjectsOfType<MinimapIconController>())
         {
-            minimapIcons.Add(minimapIconController.gameObject);
+            AllMinimapIcons.Add(minimapIconController.gameObject);
         }
 
-        HideAllIcons(minimapIcons);
+        HideAllMinimapIcons(AllMinimapIcons);
 
-        foreach (var icon in minimapIcons)
+        foreach (var icon in AllMinimapIcons)
         {
             if (icon.transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShowAllIcons(List<GameObject> list)
+    public void ShowAllMinimapIcons(List<GameObject> list)
     {
         foreach (var gameObj in list)
         {
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HideAllIcons(List<GameObject> list)
+    public void HideAllMinimapIcons(List<GameObject> list)
     {
         foreach (var gameObj in list)
         {

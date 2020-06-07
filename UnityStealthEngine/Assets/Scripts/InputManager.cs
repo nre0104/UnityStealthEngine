@@ -36,7 +36,5 @@ public class InputManager : MonoBehaviour
        GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
        Rigidbody r = bomb.GetComponent<Rigidbody>();
        r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
-
-       Debug.Log("BOMB");
    }
 }

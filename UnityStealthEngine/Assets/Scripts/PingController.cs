@@ -1,47 +1,40 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 namespace Ping
 {
     public class PingController : MonoBehaviour
     {
-        public readonly List<GameObject> pingedObjects = new List<GameObject>();
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
 
-        public UnityEvent OnPing;
-        public UnityEvent OnUnPing;
-
         private void Start()
         {
-            Ping();
-            Invoke("UnPing", PingDuration);
+            //Ping();
         }
 
         public void Ping()
         {
-            var hits = Physics.SphereCastAll(transform.position, PingRadius, Vector3.forward, PingRadius, PingLayer);
-            
+            Collider[] hits = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);     // TODO: Without any layer at all it works but with any layer it doesnt't
+
+            Debug.Log(hits.Length);
+            Debug.Log(PingLayer);
+
             if (hits != null)
             {
                 foreach (var hit in hits)
                 {
                     Debug.Log("Pinged - " + hit.transform.name);
-                    pingedObjects.Add(transform.gameObject);
+                    GameManager.PingedObjects.Add(transform.gameObject);
                 }
             }
 
-            //OnPing.Invoke(pingedObjects);
+            Invoke("UnPing", PingDuration + 0.001f);
         }
 
         public void UnPing()
         {
-            //OnUnPing.Invoke(pingedObjects);
+            GameManager.PingedObjects.Clear();
         }
     }
-    
-    [System.Serializable]
-    public class PingEvent : UnityEvent<List<GameObject>> { }
 }
