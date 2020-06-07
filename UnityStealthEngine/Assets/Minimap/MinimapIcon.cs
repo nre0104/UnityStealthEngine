@@ -14,5 +14,10 @@ namespace Minimap
         {
             gameObject.SetActive(false);
         }
+
+        public void HideWithDelay(float delay)
+        {
+            Invoke("Hide", delay);
+        }
     }
 }

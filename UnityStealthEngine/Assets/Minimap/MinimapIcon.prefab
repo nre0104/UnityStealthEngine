@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8599432796973733582}
   - component: {fileID: 8599432796973733581}
   - component: {fileID: 5386868884569946100}
+  - component: {fileID: -2538071665355296302}
   m_Layer: 25
   m_Name: MinimapIcon
   m_TagString: Untagged
@@ -108,3 +109,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c451cf123ec170347bf5e7ffa373aa2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &-2538071665355296302
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599432796973733579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.4, y: 6.69}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.4, y: 6.69}
+  m_EdgeRadius: 0
