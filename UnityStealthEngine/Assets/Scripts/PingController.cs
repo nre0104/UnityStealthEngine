@@ -11,8 +11,8 @@ namespace Ping
         public float PingRadius;
         public float PingDuration;
 
-        public UnityEvent OnPing;
-        public UnityEvent OnUnPing;
+        public PingEvent OnPing;
+        public PingEvent OnUnPing;
 
         private void Start()
         {
@@ -33,12 +33,12 @@ namespace Ping
                 }
             }
 
-            //OnPing.Invoke(pingedObjects);
+            OnPing.Invoke(pingedObjects);
         }
 
         public void UnPing()
         {
-            //OnUnPing.Invoke(pingedObjects);
+            OnUnPing.Invoke(pingedObjects);
         }
     }
     
