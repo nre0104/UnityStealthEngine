@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using Minimap;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Ping
 {
-    /**
-     * Ping with event only usable with custom PingEvents of custom namespace Ping
-     */
+    // TODO: Use custom Event to transport parameters (List of Pinged Objects)
     public class PingController : MonoBehaviour
     {
-        private readonly List<GameObject> pingedObjects = new List<GameObject>();
+        public readonly List<GameObject> pingedObjects = new List<GameObject>();
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
