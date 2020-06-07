@@ -24,6 +24,35 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        foreach (var minimapIconController in FindObjectsOfType<MinimapIconController>())
+        {
+            minimapIcons.Add(minimapIconController.gameObject);
+        }
+
+        HideAllIcons(minimapIcons);
+
+        foreach (var icon in minimapIcons)
+        {
+            if (icon.transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                icon.GetComponent<MinimapIconController>().Show();
+            }
+        }
+    }
+
+    public void ShowAllIcons(List<GameObject> list)
+    {
+        foreach (var gameObj in list)
+        {
+            gameObj.transform.GetComponentInChildren<MinimapIconController>().Show();
+        }
+    }
+
+    public void HideAllIcons(List<GameObject> list)
+    {
+        foreach (var gameObj in list)
+        {
+            gameObj.transform.GetComponentInChildren<MinimapIconController>().Hide();
+        }
     }
 }
