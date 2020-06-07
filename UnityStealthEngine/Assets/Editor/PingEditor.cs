@@ -3,12 +3,12 @@ using UnityEditor;
 using UnityEngine;
 using Ping;
 
-[CustomEditor(typeof(PingHandler))]
+[CustomEditor(typeof(PingController))]
 public class PingEditor : Editor
 {
     void OnSceneGUI()
     {
-        var pingHandler = (PingHandler)target;
+        var pingHandler = (PingController)target;
         if (pingHandler != null)
         {
             Handles.color = Color.white;

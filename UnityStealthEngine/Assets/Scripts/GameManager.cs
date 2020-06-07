@@ -1,24 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Minimap;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    void Start()
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
+
+    public static List<GameObject> minimapIcons = new List<GameObject>();
+
+    private void Awake()
     {
-        Minimap.Minimap.Hide();
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 
-   void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (Minimap.Minimap.IsActive)
-            {
-                Minimap.Minimap.Hide();
-            } else if (!Minimap.Minimap.IsActive)
-            {
-                Minimap.Minimap.Show();
-            }
-        }
+        
     }
 }

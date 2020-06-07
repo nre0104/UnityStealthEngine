@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Minimap;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,16 +8,14 @@ namespace Ping
     /**
      * Ping with event only usable with custom PingEvents of custom namespace Ping
      */
-    public class PingHandler : MonoBehaviour
+    public class PingController : MonoBehaviour
     {
         private readonly List<GameObject> pingedObjects = new List<GameObject>();
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
-        [Tooltip("Event for all pinged GameObjects. Must inherit from Ping.PingEvent")]
-        public PingEvent OnPing;
-        [Tooltip("Event for all pinged GameObjects. Must inherit from Ping.PingEvent")]
-        public PingEvent OnUnPing;
+        public UnityEvent OnPing;
+        public UnityEvent OnUnPing;
 
         private void Start()
         {
@@ -37,18 +36,12 @@ namespace Ping
                 }
             }
 
-            OnPing.Invoke(pingedObjects);
+            OnPing.Invoke();
         }
 
         public void UnPing()
         {
-            OnUnPing.Invoke(pingedObjects);
+            OnUnPing.Invoke();
         }
-    }
-
-    [System.Serializable]
-    public class PingEvent : UnityEvent<List<GameObject>>
-    {
-
     }
 }

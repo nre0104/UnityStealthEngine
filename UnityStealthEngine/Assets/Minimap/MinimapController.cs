@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Minimap 
 {
-    public class Minimap : MonoBehaviour
+    public class MinimapController : MonoBehaviour
     {
-        private static Minimap instance;
+        private static MinimapController instance;
         public static bool IsActive;
 
         void Awake()
