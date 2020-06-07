@@ -1,59 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Minimap;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Ping
 {
+    /**
+     * Ping with event only usable with custom PingEvents of custom namespace Ping
+     */
     public class PingHandler : MonoBehaviour
     {
-        private readonly List<Transform> ActiveObjects = new List<Transform>();
+        private readonly List<GameObject> pingedObjects = new List<GameObject>();
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
+        [Tooltip("Event for all pinged GameObjects. Must inherit from Ping.PingEvent")]
+        public PingEvent OnPing;
+        [Tooltip("Event for all pinged GameObjects. Must inherit from Ping.PingEvent")]
+        public PingEvent OnUnPing;
 
         private void Start()
         {
-            Invoke("Ping", 3f);
-            Invoke("Hide", PingDuration);
+            Ping();
+            Invoke("UnPing", PingDuration);
         }
 
         public void Ping()
         {
-            Collider[] hitCollider = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);
-
-            foreach (Collider collider in hitCollider)
+            var hits = Physics.SphereCastAll(transform.position, PingRadius, Vector3.forward, PingRadius, PingLayer);
+            
+            if (hits != null)
             {
-                if (collider.gameObject.GetComponent<Collider>() != false)
+                foreach (var hit in hits)
                 {
-                    List<Transform> hittedObjects = new List<Transform>();
-
-                    for (int i = 0; i < collider.gameObject.transform.childCount; i++)
-                    {
-                        hittedObjects.Add(collider.gameObject.transform.GetChild(i));
-                    }
-
-                    foreach (Transform hittedTransform in hittedObjects)
-                    {
-                        MinimapIcon minimapIcon = hittedTransform.Find("MinimapIcon").GetComponent<MinimapIcon>();
-
-                        if (hittedTransform.GetComponent<SpriteRenderer>() != null)
-
-                        {
-                            minimapIcon.Show();
-                            ActiveObjects.Add(hittedTransform);
-                        }
-                    }
+                    Debug.Log("Pinged - " + hit.transform.name);
+                    pingedObjects.Add(transform.gameObject);
                 }
             }
+
+            OnPing.Invoke(pingedObjects);
         }
 
-        public void Hide()
+        public void UnPing()
         {
-            foreach (Transform activeTransform in ActiveObjects)
-            {
-                activeTransform.gameObject.SetActive(false);
-            }
+            OnUnPing.Invoke(pingedObjects);
         }
+    }
+
+    [System.Serializable]
+    public class PingEvent : UnityEvent<List<GameObject>>
+    {
+
     }
 }
