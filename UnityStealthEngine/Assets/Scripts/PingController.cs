@@ -20,16 +20,16 @@ namespace Ping
 
             if (hits != null)
             {
-                Debug.Log("Pinged Objects: " + hits.Length);
+                Debug.Log("No. of pinged objects: " + hits.Length);
 
                 foreach (var hit in hits)
                 {
-                    Debug.Log("Pinged - " + hit.transform.name);
+                    Debug.Log("Pinged Object - " + hit.transform.name);
                     GameManager.PingedObjects.Add(hit.transform.gameObject);
                 }
             }
 
-            // Invoke("UnPing", PingDuration);
+            Invoke("UnPing", PingDuration);
         }
 
         public void UnPing()

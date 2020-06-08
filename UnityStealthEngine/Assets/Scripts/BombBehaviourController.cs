@@ -26,7 +26,6 @@ namespace Assets.Scripts
 
         void Explode()
         {
-            Debug.Log(OnExplode.GetPersistentEventCount());
             OnExplode?.Invoke();
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, interactionLayer);
@@ -47,7 +46,7 @@ namespace Assets.Scripts
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
 
-            // Invoke("DestroyObjects", destroyObjDelay);
+            Invoke("DestroyObjects", destroyObjDelay);
         }
 
         void DestroyObjects()
