@@ -24,7 +24,7 @@ namespace Assets.Scripts
 
         void Explode()
         {
-            // OnExplode.AddListener(GameManager.Instance.Hi);
+            // OnExplode.AddListener(GameManager.Instance.Hi);      // TODO: Werden die Callbacks aus dem Editor auch wirklich appended?
             OnExplode.Invoke();
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, interactionLayer);
