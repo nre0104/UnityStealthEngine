@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Minimap
 {
@@ -13,6 +14,27 @@ namespace Minimap
         public void Hide()
         {
             gameObject.SetActive(false);
+        }
+
+        public void ShowAllIcons(List<GameObject> list)
+        {
+            foreach (var gameObj in list)
+            {
+                gameObj.transform.GetComponentInChildren<MinimapIconController>().Show();
+            }
+        }
+
+        public void HideAllIcons(List<GameObject> list)
+        {
+            foreach (var gameObj in list)
+            {
+                gameObj.transform.GetComponentInChildren<MinimapIconController>().Hide();
+            }
+        }
+
+        public void HideWithDelay(float delay)
+        {
+            Invoke("Hide", delay);
         }
     }
 }
