@@ -5,7 +5,6 @@ namespace Minimap
 {
     public class MinimapIconController : MonoBehaviour
     {
-
         public void Show()
         {
             gameObject.SetActive(true);
