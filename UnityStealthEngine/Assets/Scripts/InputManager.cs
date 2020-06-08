@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Invector.vCharacterController;
+using UnityEngine;
 using Minimap;
 
 public class InputManager : MonoBehaviour
@@ -7,9 +8,13 @@ public class InputManager : MonoBehaviour
     public GameObject spawnPoint;
     public float throwForce;
 
+    public GameObject PlayerCamera;
+    public GameObject DronePrefab;
+    private GameObject drone;
+
     void Start()
     {
-        Minimap.MinimapController.Hide();
+        MinimapController.Hide();
     }
 
    void Update()
@@ -29,9 +34,35 @@ public class InputManager : MonoBehaviour
                 Minimap.MinimapController.Show();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (drone == null)
+            {
+                UseDrone();
+            }
+            else
+            {
+                KillDrone();
+            }
+        }
     }
-    
-   void ThrowBomb()
+
+   void UseDrone()
+   {
+       PlayerCamera.SetActive(false);
+       drone = Instantiate(DronePrefab, spawnPoint.transform.position, Quaternion.identity);
+       GameManager.player.GetComponent<vThirdPersonInput>().enabled = false;
+    }
+
+   void KillDrone()
+   {
+       Destroy(drone);
+        PlayerCamera.SetActive(true);
+       GameManager.player.GetComponent<vThirdPersonInput>().enabled = true;
+   }
+
+    void ThrowBomb()
    {
        GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
        Rigidbody r = bomb.GetComponent<Rigidbody>();
