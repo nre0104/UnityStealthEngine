@@ -19,7 +19,7 @@ public class MinimapBomb : MonoBehaviour
         ShowIconsInRange();
         var pingDuration = transform.gameObject.GetComponent<PingController>().PingDuration;
 
-        transform.gameObject.GetComponent<BombBehaviourController>().increaseDestroyDelay(pingDuration);
+        transform.gameObject.GetComponent<BombBehaviourController>().IncreaseDestroyDelay(pingDuration);
         Invoke("HideIconsInRange", pingDuration);
     }
 }

@@ -1,13 +1,11 @@
-﻿using UnityEngine;
+﻿using Ping;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
     public class BombBehaviourController : MonoBehaviour
     {
-        [System.Serializable]
-        public class BombEvent : UnityEvent<GameManager> { }
-
         public float delay;
         public float explosionRadius;
         public float explosionForce;
@@ -16,7 +14,7 @@ namespace Assets.Scripts
         public GameObject explosionEffectPrefab;
         private GameObject explosion;
 
-        public BombEvent OnExplode;
+        public UnityEvent OnExplode;
         private float destroyObjDelay = 3f;
 
         void Start()
@@ -26,7 +24,8 @@ namespace Assets.Scripts
 
         void Explode()
         {
-            OnExplode.Invoke(null);
+            // OnExplode.AddListener(GameManager.Instance.Hi);
+            OnExplode.Invoke();
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, interactionLayer);
 
@@ -55,7 +54,7 @@ namespace Assets.Scripts
             Destroy(gameObject);
         }
 
-        public void increaseDestroyDelay(float delay)
+        public void IncreaseDestroyDelay(float delay)
         {
             destroyObjDelay += delay;
         }

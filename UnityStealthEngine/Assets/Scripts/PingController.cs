@@ -9,16 +9,15 @@ namespace Ping
         public float PingDuration;
 
         private void Start()
-        {
-            //Ping();
+        { 
+            // Ping();
+            // Invoke("Ping", 3f);
         }
 
         public void Ping()
         {
-            Collider[] hits = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);     // TODO: Without any layer at all it works but with any layer it doesnt't
-
+            Collider[] hits = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);
             Debug.Log(hits.Length);
-            Debug.Log(PingLayer);
 
             if (hits != null)
             {
@@ -29,7 +28,7 @@ namespace Ping
                 }
             }
 
-            Invoke("UnPing", PingDuration + 0.001f);
+            Invoke("UnPing", PingDuration);
         }
 
         public void UnPing()

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Minimap;
+using Ping;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void Hi()
+    {
+        Debug.Log("Hi");
     }
 
     void Start()
