@@ -24,11 +24,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void Hi()
-    {
-        Debug.Log("Hi");
-    }
-
     void Start()
     {
         foreach (var minimapIconController in FindObjectsOfType<MinimapIconController>())

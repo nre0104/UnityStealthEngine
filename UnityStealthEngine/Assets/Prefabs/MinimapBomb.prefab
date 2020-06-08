@@ -157,7 +157,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &-3052366256296814099
 MonoBehaviour:
@@ -185,6 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PingLayer:
     serializedVersion: 2
-    m_Bits: 33554432
+    m_Bits: 2147483648
   PingRadius: 10
   PingDuration: 3

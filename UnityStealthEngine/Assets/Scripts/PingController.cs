@@ -17,18 +17,19 @@ namespace Ping
         public void Ping()
         {
             Collider[] hits = Physics.OverlapSphere(transform.position, PingRadius, PingLayer);
-            Debug.Log(hits.Length);
 
             if (hits != null)
             {
+                Debug.Log("Pinged Objects: " + hits.Length);
+
                 foreach (var hit in hits)
                 {
                     Debug.Log("Pinged - " + hit.transform.name);
-                    GameManager.PingedObjects.Add(transform.gameObject);
+                    GameManager.PingedObjects.Add(hit.transform.gameObject);
                 }
             }
 
-            Invoke("UnPing", PingDuration);
+            // Invoke("UnPing", PingDuration);
         }
 
         public void UnPing()

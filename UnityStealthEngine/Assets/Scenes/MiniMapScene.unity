@@ -94320,7 +94320,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1654
+  m_Name: pb_Mesh-1636
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -94811,7 +94811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1647580673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -95485,7 +95485,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1658
+  m_Name: pb_Mesh-1640
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -114722,6 +114722,21 @@ PrefabInstance:
     - target: {fileID: 800404102, guid: 090861753c47949489c962d06beb12cc, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108243, guid: 090861753c47949489c962d06beb12cc,
         type: 3}

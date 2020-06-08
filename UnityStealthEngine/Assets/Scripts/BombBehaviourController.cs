@@ -1,4 +1,5 @@
-﻿using Ping;
+﻿using System;
+using Ping;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +16,7 @@ namespace Assets.Scripts
         private GameObject explosion;
 
         public UnityEvent OnExplode;
+
         private float destroyObjDelay = 3f;
 
         void Start()
@@ -24,8 +26,8 @@ namespace Assets.Scripts
 
         void Explode()
         {
-            // OnExplode.AddListener(GameManager.Instance.Hi);      // TODO: Werden die Callbacks aus dem Editor auch wirklich appended?
-            OnExplode.Invoke();
+            Debug.Log(OnExplode.GetPersistentEventCount());
+            OnExplode?.Invoke();
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, interactionLayer);
 
@@ -45,7 +47,7 @@ namespace Assets.Scripts
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<Collider>().enabled = false;
 
-            Invoke("DestroyObjects", destroyObjDelay);
+            // Invoke("DestroyObjects", destroyObjDelay);
         }
 
         void DestroyObjects()

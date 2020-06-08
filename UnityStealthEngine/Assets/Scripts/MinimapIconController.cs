@@ -7,28 +7,12 @@ namespace Minimap
     {
         public void Show()
         {
-            gameObject.SetActive(true);
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
-        }
-
-        public void ShowAllIcons(List<GameObject> list)
-        {
-            foreach (var gameObj in list)
-            {
-                gameObj.transform.GetComponentInChildren<MinimapIconController>().Show();
-            }
-        }
-
-        public void HideAllIcons(List<GameObject> list)
-        {
-            foreach (var gameObj in list)
-            {
-                gameObj.transform.GetComponentInChildren<MinimapIconController>().Hide();
-            }
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         public void HideWithDelay(float delay)
