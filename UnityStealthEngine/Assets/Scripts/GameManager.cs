@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     private static readonly List<GameObject> AllMinimapIcons = new List<GameObject>();
     public static readonly List<GameObject> PingedObjects = new List<GameObject>();
+    private static GameObject player;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         {
             if (icon.transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
+                player = icon.transform.parent.gameObject;
                 icon.GetComponent<MinimapIconController>().Show();
             }
         }

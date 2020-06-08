@@ -36,5 +36,13 @@ namespace Ping
         {
             GameManager.PingedObjects.Clear();
         }
+
+        public void BlockPingFor(GameObject gameObj)
+        {
+            if (GameManager.PingedObjects.Contains(gameObj))
+            {
+                GameManager.PingedObjects.Remove(gameObj);
+            }
+        }
     }
 }
