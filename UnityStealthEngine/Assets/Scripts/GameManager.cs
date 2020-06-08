@@ -46,7 +46,12 @@ public class GameManager : MonoBehaviour
     {
         foreach (var gameObj in list)
         {
-            gameObj.transform.GetComponentInChildren<MinimapIconController>().Show();
+            var minimapIconController = gameObj.transform.GetComponentInChildren<MinimapIconController>();
+
+            if (minimapIconController != null)
+            {
+                minimapIconController.Show();
+            }
         }
     }
 
@@ -54,7 +59,12 @@ public class GameManager : MonoBehaviour
     {
         foreach (var gameObj in list)
         {
-            gameObj.transform.GetComponentInChildren<MinimapIconController>().Hide();
+            var minimapIconController = gameObj.transform.GetComponentInChildren<MinimapIconController>();
+
+            if (minimapIconController != null)
+            {
+                minimapIconController.Hide();
+            }
         }
     }
 }
