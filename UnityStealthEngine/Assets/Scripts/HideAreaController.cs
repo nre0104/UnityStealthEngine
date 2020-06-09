@@ -1,20 +1,40 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class HideAreaController : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == GameManager.player)
+        try
         {
-            other.gameObject.GetComponent<PlayerController>().isHidden = true;
+            if (other.gameObject == GameManager.player)
+            {
+                if (gameObject.GetComponent<Collider>().bounds.Contains(GameManager.player.gameObject.GetComponent<Collider>().bounds.center))
+                {
+                    other.gameObject.GetComponent<PlayerController>().isHidden = true;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == GameManager.player)
+        try
         {
-            other.gameObject.GetComponent<PlayerController>().isHidden = false;
+            if (other.gameObject == GameManager.player)
+            {
+                other.gameObject.GetComponent<PlayerController>().isHidden = false;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 }

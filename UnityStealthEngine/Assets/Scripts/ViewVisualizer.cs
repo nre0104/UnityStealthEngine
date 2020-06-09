@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 namespace Vision
 {
-/**
- * From Sebatian Lague's GitHub on https://github.com/SebLague/Field-of-View/blob/master/Episode%2002/Scripts/FieldOfView.cs
- */
-// TODO: View only scans ground --> player can't be found behind every Obj. the size of the Obj. doesn't matter
+    /**
+     * From Sebatian Lague's GitHub on https://github.com/SebLague/Field-of-View/blob/master/Episode%2002/Scripts/FieldOfView.cs
+     */
+    // TODO: View only scans ground --> player can't be found behind every Obj. the size of the Obj. doesn't matter
     public class ViewVisualizer : MonoBehaviour
     {
         public float viewRadius;

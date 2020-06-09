@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
         MinimapController.Hide();
     }
 
-   void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -29,7 +29,8 @@ public class InputManager : MonoBehaviour
             if (Minimap.MinimapController.IsActive)
             {
                 Minimap.MinimapController.Hide();
-            } else if (!Minimap.MinimapController.IsActive)
+            }
+            else if (!Minimap.MinimapController.IsActive)
             {
                 Minimap.MinimapController.Show();
             }
@@ -48,24 +49,24 @@ public class InputManager : MonoBehaviour
         }
     }
 
-   void UseDrone()
-   {
-       PlayerCamera.SetActive(false);
-       drone = Instantiate(DronePrefab, spawnPoint.transform.position, Quaternion.identity);
-       GameManager.player.GetComponent<vThirdPersonInput>().enabled = false;
+    void UseDrone()
+    {
+        PlayerCamera.SetActive(false);
+        drone = Instantiate(DronePrefab, spawnPoint.transform.position, Quaternion.identity);
+        GameManager.player.GetComponent<vThirdPersonInput>().enabled = false;
     }
 
-   void KillDrone()
-   {
-       Destroy(drone);
+    void KillDrone()
+    {
+        Destroy(drone);
         PlayerCamera.SetActive(true);
-       GameManager.player.GetComponent<vThirdPersonInput>().enabled = true;
-   }
+        GameManager.player.GetComponent<vThirdPersonInput>().enabled = true;
+    }
 
     void ThrowBomb()
-   {
-       GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
-       Rigidbody r = bomb.GetComponent<Rigidbody>();
-       r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
-   }
+    {
+        GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
+        Rigidbody r = bomb.GetComponent<Rigidbody>();
+        r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
+    }
 }
