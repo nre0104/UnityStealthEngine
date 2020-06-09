@@ -45,7 +45,7 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
                 GameObject das man wirft (Aktuell "Projektil")
                 Wenn Triggered liefert Position --> "Hören via NavMesh + Vektor nutzen
            
-    - [ ] "Sichtbarkeits" Visualisierung `(branch feature/ui)`
+    - [X] "Sichtbarkeits" Visualisierung `(branch feature/ui)`
         - Anzeige im UI die zeigt wie sichbar man ist   
                 
                 UI Anzeicge "Sichtbar X von 100" & "Hörbar Y von 100"
