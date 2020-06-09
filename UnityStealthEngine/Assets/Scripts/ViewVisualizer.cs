@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
 
 namespace Vision
@@ -28,7 +30,9 @@ namespace Vision
         public MeshFilter viewMeshFilter;
         Mesh viewMesh;
 
+        private bool seen = false;
         public UnityEvent OnTargetFound;
+        public UnityEvent OnTargetLost;
 
         void Start()
         {
@@ -56,6 +60,7 @@ namespace Vision
 
         void FindVisibleTargets()
         {
+            seen = false;
             visibleTargets.Clear();
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
@@ -72,12 +77,18 @@ namespace Vision
                         {
                             // Found target
                             Debug.Log("Seen");
+                            seen = true;
                             OnTargetFound.Invoke();
 
                             visibleTargets.Add(target);
                         }
                     }
                 }
+            }
+
+            if (!seen)
+            {
+                OnTargetLost.Invoke();
             }
         }
 

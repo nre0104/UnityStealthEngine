@@ -1,18 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Slider slider;
+
+    public void SetSlide(int value)
     {
-        
+        slider.value = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMax(int value)
     {
-        
+        slider.maxValue = value;
+    }
+
+    public void SetMin(int value)
+    {
+        slider.minValue = value;
+    }
+
+    public void IncreaseByOne()
+    {
+        slider.value += 1;
+    }
+
+    public void DecreaseByOne()
+    {
+        slider.value -= 1;
     }
 }
