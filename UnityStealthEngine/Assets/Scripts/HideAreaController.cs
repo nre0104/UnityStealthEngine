@@ -7,8 +7,6 @@ public class HideAreaController : MonoBehaviour
         if (other.gameObject == GameManager.player)
         {
             other.gameObject.GetComponent<PlayerController>().isHidden = true;
-
-            Debug.Log("Hidden");
         }
     }
 
@@ -17,8 +15,6 @@ public class HideAreaController : MonoBehaviour
         if (other.gameObject == GameManager.player)
         {
             other.gameObject.GetComponent<PlayerController>().isHidden = false;
-
-            Debug.Log("Visible");
         }
     }
 }
