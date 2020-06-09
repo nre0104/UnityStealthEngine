@@ -13,6 +13,13 @@ public class EnemyController : MonoBehaviour
     private Vector3 startingPosition;
     public Transform[] points;
     private int destPoint = 0;
+    private State state;
+
+    private enum State
+    {
+        Patrole,
+        Chase,
+    }
 
     void Start()
     {
@@ -25,9 +32,31 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        //ChasePlayer();
+
+        switch (state)
+        {
+            default:
+            case State.Patrole:
+                PatroleMap();
+                break;
+            case State.Chase:
+                ChasePlayer();
+                break;
+        }
+    }
+
+    void PatroleMap()
+    {
+        float distance = Vector3.Distance(target.position, transform.position);
+
         if (!agent.pathPending && agent.remainingDistance < 2f)
+        {
             GotoNextPoint();
+        }
+        if(distance <= LookRadius)
+        {
+            state = State.Chase;
+        }
     }
 
     void ChasePlayer()
@@ -42,6 +71,10 @@ public class EnemyController : MonoBehaviour
             {
                 FaceTarget();
             }
+        }
+        if(distance >= LookRadius)
+        {
+            state = State.Patrole;
         }
     }
 
