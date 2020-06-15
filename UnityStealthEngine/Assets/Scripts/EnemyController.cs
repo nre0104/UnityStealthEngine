@@ -73,16 +73,18 @@ public class EnemyController : MonoBehaviour
     {
         float reachedPositionDistance = 2f;
         agent.SetDestination(raomPosition);
-        if (agent.pathStatus == NavMeshPathStatus.PathInvalid)
-        {
-            raomPosition = GetRoamingPosition();
-        }
         Debug.Log("He is Roaming");
         
         if(Vector3.Distance(transform.position, raomPosition) > reachedPositionDistance)
         {
             Debug.Log("He is going Pat");
             state = State.Patrol;
+        }
+
+        float distance = Vector3.Distance(target.position, transform.position);
+        if (distance <= LookRadius)
+        {
+            state = State.Chase;
         }
     }
 
