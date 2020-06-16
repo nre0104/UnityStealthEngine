@@ -100,6 +100,7 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         Vector3 direction = target.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
+
         if (angle <= fieldOfViewAngle * 0.5f) // TODO: Add the isHidden Parameter of target to the Function so Player is invisible in the HideZone
         {
             RaycastHit hit;
