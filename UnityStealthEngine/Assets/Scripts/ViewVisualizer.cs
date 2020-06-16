@@ -55,7 +55,7 @@ namespace Vision
 
         void LateUpdate()
         {
-            DrawFieldOfView();
+            DrawFieldOfView(viewAngle, viewMesh, meshResolution, edgeDstThreshold);
         }
 
         void FindVisibleTargets()
@@ -92,7 +92,7 @@ namespace Vision
             }
         }
 
-        void DrawFieldOfView()
+        public void DrawFieldOfView(float viewAngle, Mesh viewMesh, float meshResolution, float edgeDstThreshold)
         {
             int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
             float stepAngleSize = viewAngle / stepCount;
