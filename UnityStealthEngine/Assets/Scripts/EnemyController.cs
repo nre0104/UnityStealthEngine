@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngineInternal;
 
-//https://docs.unity3d.com/Manual/nav-AgentPatrol.html
-
+// https://docs.unity3d.com/Manual/nav-AgentPatrol.html
 public class EnemyController : MonoBehaviour
 {
     public float LookRadius = 6f;
@@ -15,9 +10,9 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     Transform target;
     public Transform[] points;
-    private int destPoint = 0;
+    private int destination = 0;
     private State state;
-    private Vector3 raomPosition;
+    private Vector3 roamPosition;
     private Vector3 stonePosition;
 
 
@@ -50,7 +45,7 @@ public class EnemyController : MonoBehaviour
                 ChasePlayer();
                 break;
             case State.Search:
-                raomPosition = GetRoamingPosition();
+                roamPosition = GetRoamingPosition();
                 SearchForPlayer();
                 break;
             case State.Distracted:
@@ -76,12 +71,10 @@ public class EnemyController : MonoBehaviour
     void SearchForPlayer()
     {
         float reachedPositionDistance = 2f;
-        agent.SetDestination(raomPosition);
-        Debug.Log("He is Roaming");
+        agent.SetDestination(roamPosition);
         
-        if(Vector3.Distance(transform.position, raomPosition) > reachedPositionDistance)
+        if(Vector3.Distance(transform.position, roamPosition) > reachedPositionDistance)
         {
-            Debug.Log("He is going Pat");
             state = State.Patrol;
         }
 
@@ -107,12 +100,11 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         Vector3 direction = target.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
-        if (angle <= fieldOfViewAngle * 0.5f) // TODO: Add the isHidden Parameter of target to the Function so Player is invis in the BlackZone
+        if (angle <= fieldOfViewAngle * 0.5f) // TODO: Add the isHidden Parameter of target to the Function so Player is invisible in the HideZone
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
             {
-                Debug.Log("He seas you");
                 agent.SetDestination(target.position);
 
                 if (distance <= agent.stoppingDistance)
@@ -124,7 +116,6 @@ public class EnemyController : MonoBehaviour
 
         if (CalculatePathLength(target.position) <= LookRadius) // TODO: Player der schleicht darf nicht gehört werden
         {
-            Debug.Log("he hears you");
             agent.SetDestination(target.position);
         }
 
@@ -196,11 +187,11 @@ public class EnemyController : MonoBehaviour
             return;
 
         // Set the agent to go to the currently selected destination.
-        agent.destination = points[destPoint].position;
+        agent.destination = points[destination].position;
 
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
+        destination = (destination + 1) % points.Length;
     }
 
 
