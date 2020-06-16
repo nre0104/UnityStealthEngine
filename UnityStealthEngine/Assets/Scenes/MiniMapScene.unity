@@ -38216,7 +38216,8 @@ MonoBehaviour:
   PlayerCamera: {fileID: 329978820}
   DronePrefab: {fileID: 655480532325872838, guid: c3959840e7a782549adadaa7bbb750c9,
     type: 3}
-  StonePrefab: {fileID: 0}
+  StonePrefab: {fileID: 3952475226060532298, guid: 4f36bc066f456f54aa939cdc6aca322b,
+    type: 3}
 --- !u!43 &814122746
 Mesh:
   m_ObjectHideFlags: 0
