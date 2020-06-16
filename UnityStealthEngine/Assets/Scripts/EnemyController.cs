@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
 {
     public float LookRadius = 6f;
     public float fieldOfViewAngle = 110f;
+    private float distractionTime = 10f;
     NavMeshAgent agent;
     Transform target;
     private Vector3 startingPosition;
@@ -18,6 +19,8 @@ public class EnemyController : MonoBehaviour
     private int destPoint = 0;
     private State state;
     private Vector3 raomPosition;
+    private SphereCollider sphereCollider;
+    private Vector3 stonePosition;
 
 
     private enum State
@@ -25,10 +28,12 @@ public class EnemyController : MonoBehaviour
         Patrol,
         Chase,
         Search,
+        Distracted,
     }
 
     void Start()
     {
+        sphereCollider = GetComponent<SphereCollider>();
         startingPosition = transform.position;;
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
@@ -51,6 +56,9 @@ public class EnemyController : MonoBehaviour
             case State.Search:
                 raomPosition = GetRoamingPosition();
                 SearchForPlayer();
+                break;
+            case State.Distracted:
+                GetDistracted();
                 break;
         }
     }
@@ -118,7 +126,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (CalculatePathLength(target.position) <= LookRadius)
+        if (CalculatePathLength(target.position) <= LookRadius) // TODO: Player der schleicht darf nicht gehört werden
         {
             Debug.Log("he hears you");
             agent.SetDestination(target.position);
@@ -155,6 +163,27 @@ public class EnemyController : MonoBehaviour
         return pathLength;
     }
 
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Stone" && state != State.Chase)
+        {
+            state = State.Distracted;
+            Debug.Log("Stone Collided");
+            stonePosition = collider.gameObject.transform.position;
+        }
+    }
+
+    void GetDistracted()
+    {
+        agent.SetDestination(stonePosition);
+        if (distractionTime <= 0f) //TODO: implement a Timer to keep Enemy distracted
+        {
+            state = State.Patrol;
+        }
+        state = State.Patrol;
+    }
+
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
@@ -175,6 +204,7 @@ public class EnemyController : MonoBehaviour
         // cycling to the start if necessary.
         destPoint = (destPoint + 1) % points.Length;
     }
+
 
     private void OnDrawGizmosSelected()
     {
