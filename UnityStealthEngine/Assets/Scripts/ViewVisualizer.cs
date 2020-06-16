@@ -10,7 +10,6 @@ namespace Vision
     /**
      * From Sebatian Lague's GitHub on https://github.com/SebLague/Field-of-View/blob/master/Episode%2002/Scripts/FieldOfView.cs
      */
-    // TODO: View only scans ground --> player can't be found behind every Obj. the size of the Obj. doesn't matter
     public class ViewVisualizer : MonoBehaviour
     {
         public float viewRadius;
@@ -66,7 +65,6 @@ namespace Vision
             StartCoroutine("FindTargetsWithDelay", .2f);
         }
 
-
         IEnumerator FindTargetsWithDelay(float delay)
         {
             while (true)
@@ -91,6 +89,7 @@ namespace Vision
             {
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
+                
                 if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 {
                     float dstToTarget = Vector3.Distance(transform.position, target.position);
@@ -121,6 +120,7 @@ namespace Vision
             float stepAngleSize = viewAngle / stepCount;
             List<Vector3> viewPoints = new List<Vector3>();
             ViewCastInfo oldViewCast = new ViewCastInfo();
+
             for (int i = 0; i <= stepCount; i++)
             {
                 float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;

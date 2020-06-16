@@ -26,7 +26,9 @@ public class EnemyController : MonoBehaviour
     private Vector3 stonePosition;
 
     public UnityEvent OnHearedEvent;
-    public UnityEvent OnLostEvent;
+    public UnityEvent OnHearedLostEvent;
+    public UnityEvent OnViewEvent;
+    public UnityEvent OnViewLostEvent;
 
     private enum State
     {
@@ -84,7 +86,7 @@ public class EnemyController : MonoBehaviour
         {
             GotoNextPoint();
         }
-        if(distance <= LookRadius && target.GetComponent<PlayerController>().isHidden == false)
+        if (distance <= LookRadius && target.GetComponent<PlayerController>().isHidden == false)
         {
             state = State.Chase;
         }
@@ -94,8 +96,8 @@ public class EnemyController : MonoBehaviour
     {
         float reachedPositionDistance = 2f;
         agent.SetDestination(roamPosition);
-        
-        if(Vector3.Distance(transform.position, roamPosition) > reachedPositionDistance)
+
+        if (Vector3.Distance(transform.position, roamPosition) > reachedPositionDistance)
         {
             state = State.Patrol;
         }
@@ -109,12 +111,12 @@ public class EnemyController : MonoBehaviour
 
     Vector3 GetRoamingPosition()
     {
-        return transform.position + GetRandomDir() * Random.Range(10f,15f);
+        return transform.position + GetRandomDir() * Random.Range(10f, 15f);
     }
 
     private Vector3 GetRandomDir()
     {
-        return new Vector3(UnityEngine.Random.Range(-1f,1f), 0, UnityEngine.Random.Range(-1f,1f)).normalized;
+        return new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, UnityEngine.Random.Range(-1f, 1f)).normalized;
     }
 
     void ChasePlayer()
@@ -137,15 +139,15 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting == true) 
+        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting == true)
         {
             OnHearedEvent.Invoke();
             agent.SetDestination(target.position);
         }
 
-        if(distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
+        if (distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
-            OnLostEvent.Invoke();
+            OnHearedLostEvent.Invoke();
             state = State.Search;
         }
     }
@@ -157,7 +159,7 @@ public class EnemyController : MonoBehaviour
         {
             agent.CalculatePath(targetPosition, path);
         }
-        Vector3[] allWayPoints = new Vector3[path.corners.Length +2];
+        Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
         allWayPoints[0] = transform.position;
         allWayPoints[allWayPoints.Length - 1] = targetPosition;
 
