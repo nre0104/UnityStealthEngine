@@ -17,7 +17,7 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
             Patrullie per Navmash + feste Punkte, Statemachine für "Chase", "Search" und "Patroul"
             "Sichtbarkeit" über zentralen GameManager
             
-    - [ ] Gegnerische Kameras die sehen `(branch feature/camera)`
+    - [X] Gegnerische Kameras die sehen `(branch feature/camera)`
             
             "Sehen" wird über Vision-Cone dargestellt
             "Sichtbarkeit" über zentralen GameManager
@@ -36,7 +36,7 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
                 Collider + Visualisierung (schwarze Plane)
                 Gegner fragt bei Sicht/Hören den Satus des Player ab (hidden vs. nicht hidden)    
     
-    - [ ] Gegner ablenken `(branch feature/distract)`
+    - [X] Gegner ablenken `(branch feature/distract)`
         - Stein werfen (Optional: Flugbahn visualisieren, Gegner in "Range" visualisieren)        
         - Gegner hören den Stein aufprallen
         - Gegner laufen zu Stein
