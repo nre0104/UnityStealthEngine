@@ -104,10 +104,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LookRadius: 6
   fieldOfViewAngle: 110
+  viewMeshFilter: {fileID: 2857254449771783544}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1073741824
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 67108865
   points:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  OnHearedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: IncreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetMax
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHearedLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: DecreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnViewEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: IncreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnViewLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: DecreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &966092391
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -179,7 +252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d45f254d13bf139449dfce749901e8de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -443,6 +516,12 @@ PrefabInstance:
 --- !u!4 &2547600568471676330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6765750704524604061, guid: 51b4ddd089ad27747835f48e2798882d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9132775935745972023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &2857254449771783544 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 6420200796814766671, guid: 51b4ddd089ad27747835f48e2798882d,
     type: 3}
   m_PrefabInstance: {fileID: 9132775935745972023}
   m_PrefabAsset: {fileID: 0}

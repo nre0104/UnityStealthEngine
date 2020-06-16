@@ -131,7 +131,7 @@ public class EnemyController : MonoBehaviour
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
             {
                 agent.SetDestination(target.position);
-
+                OnViewEvent.Invoke();
                 if (distance <= agent.stoppingDistance)
                 {
                     FaceTarget();
@@ -148,6 +148,7 @@ public class EnemyController : MonoBehaviour
         if (distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
             OnHearedLostEvent.Invoke();
+            OnViewLostEvent.Invoke();
             state = State.Search;
         }
     }
