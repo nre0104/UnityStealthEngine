@@ -1,6 +1,7 @@
 ﻿using Invector.vCharacterController;
 using UnityEngine;
 using Minimap;
+using UnityEngineInternal;
 
 public class InputManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class InputManager : MonoBehaviour
     public GameObject DronePrefab;
     public GameObject StonePrefab;
     private GameObject drone;
+    public Camera cam;
 
     void Start()
     {
@@ -52,6 +54,21 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ThrowStone();
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            Ray ray = new Ray(spawnPoint.transform.position, spawnPoint.transform.forward);
+            Debug.DrawLine(ray.origin, ray.GetPoint(3f), Color.cyan);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 3f))
+            {
+                if (hit.collider.GetComponent<Interactable>() != null)
+                {
+                    Destroy(hit.transform.gameObject);
+                }
+            }
+
         }
     }
 

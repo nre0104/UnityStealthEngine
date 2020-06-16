@@ -81,14 +81,20 @@ public class EnemyController : MonoBehaviour
     void PatrolMap()
     {
         float distance = Vector3.Distance(target.position, transform.position);
+        Vector3 direction = target.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
 
         if (!agent.pathPending && agent.remainingDistance < 2f)
         {
             GotoNextPoint();
         }
-        if (distance <= LookRadius && target.GetComponent<PlayerController>().isHidden == false)
+        if (distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
         {
-            state = State.Chase;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
+            {
+                state = State.Chase;
+            }
         }
     }
 
@@ -134,7 +140,7 @@ public class EnemyController : MonoBehaviour
                 OnViewEvent.Invoke();
                 if (distance <= agent.stoppingDistance)
                 {
-                    FaceTarget();
+                    FaceTarget(target.position);
                 }
             }
         }
@@ -196,6 +202,7 @@ public class EnemyController : MonoBehaviour
     void GetDistracted()
     {
         agent.SetDestination(stonePosition);
+        FaceTarget(stonePosition);
     }
 
     void ReturnToPatrolling()
@@ -203,10 +210,10 @@ public class EnemyController : MonoBehaviour
         state = State.Patrol;
     }
 
-    void FaceTarget()
+    void FaceTarget(Vector3 position)
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        Vector3 direction = (position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5);
     }
 
