@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 // https://docs.unity3d.com/Manual/nav-AgentPatrol.html
 public class EnemyController : MonoBehaviour
@@ -14,7 +15,8 @@ public class EnemyController : MonoBehaviour
     private State state;
     private Vector3 roamPosition;
     private Vector3 stonePosition;
-
+    public UnityEvent OnHearedEvent;
+    public UnityEvent OnLostEvent;
 
     private enum State
     {
@@ -117,11 +119,13 @@ public class EnemyController : MonoBehaviour
 
         if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting == true) 
         {
+            OnHearedEvent.Invoke();
             agent.SetDestination(target.position);
         }
 
         if(distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
+            OnLostEvent.Invoke();
             state = State.Search;
         }
     }
