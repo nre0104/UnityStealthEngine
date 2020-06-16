@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
 
     public GameObject PlayerCamera;
     public GameObject DronePrefab;
+    public GameObject StonePrefab;
     private GameObject drone;
 
     void Start()
@@ -47,6 +48,11 @@ public class InputManager : MonoBehaviour
                 KillDrone();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ThrowStone();
+        }
     }
 
     void UseDrone()
@@ -67,6 +73,15 @@ public class InputManager : MonoBehaviour
     {
         GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
         Rigidbody r = bomb.GetComponent<Rigidbody>();
+        
+        r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
+    }
+
+    void ThrowStone()
+    {
+        GameObject stone = Instantiate(StonePrefab, spawnPoint.transform.position, Quaternion.identity);
+        Rigidbody r = stone.GetComponent<Rigidbody>();
+
         r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
     }
 }
