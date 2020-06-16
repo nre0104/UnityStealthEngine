@@ -115084,6 +115084,11 @@ PrefabInstance:
       propertyPath: OnTargetFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 2391927472825181107, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: m_Layer
