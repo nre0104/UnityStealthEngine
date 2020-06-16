@@ -14,12 +14,10 @@ public class EnemyController : MonoBehaviour
     private float distractionTime = 10f;
     NavMeshAgent agent;
     Transform target;
-    private Vector3 startingPosition;
     public Transform[] points;
     private int destPoint = 0;
     private State state;
     private Vector3 raomPosition;
-    private SphereCollider sphereCollider;
     private Vector3 stonePosition;
 
 
@@ -33,8 +31,6 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        sphereCollider = GetComponent<SphereCollider>();
-        startingPosition = transform.position;;
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
@@ -168,6 +164,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Stone" && state != State.Chase)
         {
+            agent.ResetPath();
             state = State.Distracted;
             Debug.Log("Stone Collided");
             stonePosition = collider.gameObject.transform.position;
@@ -177,10 +174,11 @@ public class EnemyController : MonoBehaviour
     void GetDistracted()
     {
         agent.SetDestination(stonePosition);
-        if (distractionTime <= 0f) //TODO: implement a Timer to keep Enemy distracted
-        {
-            state = State.Patrol;
-        }
+        Invoke("ReturnToPatrolling", distractionTime);
+    }
+
+    void ReturnToPatrolling()
+    {
         state = State.Patrol;
     }
 
