@@ -34,8 +34,31 @@ namespace Vision
         public UnityEvent OnTargetFound;
         public UnityEvent OnTargetLost;
 
+        private Transform transform;
+
+        public ViewVisualizer(Transform transform, float viewRadius, float viewAngle, LayerMask targetMask, LayerMask obstacleMask, float meshResolution, int edgeResolveIterations, float edgeDstThreshold, MeshFilter viewMeshFilter)
+        {
+            this.transform = transform;
+            this.viewRadius = viewRadius;
+            this.viewAngle = viewAngle;
+            this.targetMask = targetMask;
+            this.obstacleMask = obstacleMask;
+            this.meshResolution = meshResolution;
+            this.edgeResolveIterations = edgeResolveIterations;
+            this.edgeDstThreshold = edgeDstThreshold;
+
+            viewMesh = new Mesh();
+            viewMesh.name = "View Mesh";
+            viewMeshFilter.mesh = viewMesh;
+        }
+
         void Start()
         {
+            if (transform == null)
+            {
+                transform = gameObject.transform;
+            }
+
             viewMesh = new Mesh();
             viewMesh.name = "View Mesh";
             viewMeshFilter.mesh = viewMesh;
@@ -55,7 +78,7 @@ namespace Vision
 
         void LateUpdate()
         {
-            DrawFieldOfView(viewAngle, viewMesh, meshResolution, edgeDstThreshold);
+            DrawFieldOfView();
         }
 
         void FindVisibleTargets()
@@ -92,7 +115,7 @@ namespace Vision
             }
         }
 
-        public void DrawFieldOfView(float viewAngle, Mesh viewMesh, float meshResolution, float edgeDstThreshold)
+        public void DrawFieldOfView()
         {
             int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
             float stepAngleSize = viewAngle / stepCount;

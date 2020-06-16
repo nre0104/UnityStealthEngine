@@ -1,20 +1,30 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using Vision;
 
 // https://docs.unity3d.com/Manual/nav-AgentPatrol.html
 public class EnemyController : MonoBehaviour
 {
     public float LookRadius = 6f;
+    [Range(0, 360)]
     public float fieldOfViewAngle = 110f;
     private float distractionTime = 10f;
+
+    public MeshFilter viewMeshFilter;
+    Mesh viewMesh;
+    public LayerMask targetLayer;
+    public LayerMask obstacleLayer;
+
     NavMeshAgent agent;
     Transform target;
     public Transform[] points;
+
     private int destination = 0;
     private State state;
     private Vector3 roamPosition;
     private Vector3 stonePosition;
+
     public UnityEvent OnHearedEvent;
     public UnityEvent OnLostEvent;
 
@@ -23,11 +33,15 @@ public class EnemyController : MonoBehaviour
         Patrol,
         Chase,
         Search,
-        Distracted,
+        Distracted
     }
 
     void Start()
     {
+        viewMesh = new Mesh();
+        viewMesh.name = "View Mesh";
+        viewMeshFilter.mesh = viewMesh;
+
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
@@ -54,6 +68,12 @@ public class EnemyController : MonoBehaviour
                 GetDistracted();
                 break;
         }
+    }
+
+    void LateUpdate()
+    {
+        ViewVisualizer viewVisualizer = new ViewVisualizer(transform, LookRadius, fieldOfViewAngle, targetLayer, obstacleLayer, 6f, 6, 0.5f, viewMeshFilter);
+        viewVisualizer.DrawFieldOfView();
     }
 
     void PatrolMap()
