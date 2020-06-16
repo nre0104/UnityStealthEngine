@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         {
             GotoNextPoint();
         }
-        if(distance <= LookRadius)
+        if(distance <= LookRadius && target.GetComponent<PlayerController>().isHidden == false)
         {
             state = State.Chase;
         }
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
         }
 
         float distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= LookRadius)
+        if (distance <= LookRadius && target.GetComponent<PlayerController>().isHidden == false)
         {
             state = State.Chase;
         }
@@ -101,7 +101,7 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = target.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
-        if (angle <= fieldOfViewAngle * 0.5f) // TODO: Add the isHidden Parameter of target to the Function so Player is invisible in the HideZone
+        if (angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
@@ -115,12 +115,12 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (CalculatePathLength(target.position) <= LookRadius) // TODO: Player der schleicht darf nicht gehört werden
+        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting == true) 
         {
             agent.SetDestination(target.position);
         }
 
-        if(distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius)
+        if(distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
             state = State.Search;
         }
@@ -156,17 +156,19 @@ public class EnemyController : MonoBehaviour
     {
         if (collider.tag == "Stone" && state != State.Chase)
         {
+            agent.isStopped = true;
             agent.ResetPath();
+            agent.isStopped = false;
             state = State.Distracted;
             Debug.Log("Stone Collided");
             stonePosition = collider.gameObject.transform.position;
+            Invoke("ReturnToPatrolling", distractionTime);
         }
     }
 
     void GetDistracted()
     {
         agent.SetDestination(stonePosition);
-        Invoke("ReturnToPatrolling", distractionTime);
     }
 
     void ReturnToPatrolling()
