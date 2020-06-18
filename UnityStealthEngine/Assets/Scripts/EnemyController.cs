@@ -21,21 +21,24 @@ public class EnemyController : MonoBehaviour
     public Transform[] points;
 
     private int destination = 0;
-    private State state;
+    public State state;
     private Vector3 roamPosition;
     private Vector3 stonePosition;
+    public bool isStuned;
+    private Material oldMaterial;
 
     public UnityEvent OnHearedEvent;
     public UnityEvent OnHearedLostEvent;
     public UnityEvent OnViewEvent;
     public UnityEvent OnViewLostEvent;
 
-    private enum State
+    public enum State
     {
         Patrol,
         Chase,
         Search,
-        Distracted
+        Distracted,
+        Stuned
     }
 
     void Start()
@@ -44,6 +47,7 @@ public class EnemyController : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
+        oldMaterial = transform.GetChild(2).GetComponent<Renderer>().material;
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
@@ -73,6 +77,9 @@ public class EnemyController : MonoBehaviour
                 break;
             case State.Distracted:
                 GetDistracted();
+                break;
+            case State.Stuned:
+                Stuned();
                 break;
         }
 
@@ -246,5 +253,24 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, LookRadius);
+    }
+
+    public void Stuned()
+    {
+        if (isStuned == false)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+            agent.isStopped = false;
+            Invoke("Destuned", 10f);
+            isStuned = true;
+        }
+    }
+
+    void Destuned()
+    {
+        isStuned = false;
+        state = State.Patrol;
+        transform.GetChild(2).GetComponent<Renderer>().material = oldMaterial;
     }
 }

@@ -17837,11 +17837,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
-      propertyPath: points.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
-        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1806604930}
@@ -17937,25 +17932,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
---- !u!1 &473165458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
-    type: 3}
-  m_PrefabInstance: {fileID: 473165457}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &473165459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473165458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76294831513067a41a173e96f4d6482a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
 --- !u!1 &475068676
 GameObject:
   m_ObjectHideFlags: 0
@@ -40083,6 +40059,7 @@ MonoBehaviour:
   StonePrefab: {fileID: 3952475226060532298, guid: 4f36bc066f456f54aa939cdc6aca322b,
     type: 3}
   cam: {fileID: 329978826}
+  StunMaterial: {fileID: 2100000, guid: 9e1b5edd368273543b12de0449cc4b42, type: 2}
 --- !u!1001 &813976136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71796,19 +71773,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
-      propertyPath: points.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
-        type: 3}
       propertyPath: points.Array.data[0]
       value: 
-      objectReference: {fileID: 631974471}
+      objectReference: {fileID: 1384027822}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.data[1]
       value: 
-      objectReference: {fileID: 1384027822}
+      objectReference: {fileID: 631974471}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: OnHearedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -71896,25 +71868,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
---- !u!1 &1190993562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
-    type: 3}
-  m_PrefabInstance: {fileID: 1190993561}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1190993563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190993562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76294831513067a41a173e96f4d6482a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
 --- !u!1 &1200102463
 GameObject:
   m_ObjectHideFlags: 0

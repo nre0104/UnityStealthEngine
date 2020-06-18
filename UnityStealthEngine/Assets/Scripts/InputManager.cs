@@ -1,6 +1,8 @@
-﻿using Invector.vCharacterController;
+﻿using System.Collections.Generic;
+using Invector.vCharacterController;
 using UnityEngine;
 using Minimap;
+using UnityEngine.AI;
 using UnityEngineInternal;
 
 public class InputManager : MonoBehaviour
@@ -14,6 +16,7 @@ public class InputManager : MonoBehaviour
     public GameObject StonePrefab;
     private GameObject drone;
     public Camera cam;
+    public Material StunMaterial;
 
     void Start()
     {
@@ -65,8 +68,8 @@ public class InputManager : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Interactable>() != null)
                 {
-                    hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                    //hit.transform.GetComponent<Renderer>().material = //TODO: set a stun Material
+                    hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stuned;
+                    hit.transform.GetChild(2).GetComponent<Renderer>().material = StunMaterial;
                 }
             }
 
