@@ -26,11 +26,18 @@ namespace Drone
 
             if (Physics.Raycast(ray, out hit, markingRang, layer))
             {
-                GameObject obj = hit.transform.gameObject;
-                GameManager.OldEnemiesMaterials.Enqueue(obj.GetComponent<Renderer>().material);
+                if (hit.transform.GetComponent<Renderer>() != null)
+                {
+                    GameObject obj = hit.transform.gameObject;
+                    GameManager.OldEnemiesMaterials.Enqueue(obj.GetComponent<Renderer>().material);
 
-                obj.GetComponent<Renderer>().material = visibleMaterial;
-                GameManager.MarkedEnemies.Add(obj);
+                    obj.GetComponent<Renderer>().material = visibleMaterial;
+                    GameManager.MarkedEnemies.Add(obj);
+                }
+                else
+                {
+                    Debug.Log("Renderer is missing on this object");
+                }
             }
         }
 
@@ -43,4 +50,3 @@ namespace Drone
         }
     }
 }
-

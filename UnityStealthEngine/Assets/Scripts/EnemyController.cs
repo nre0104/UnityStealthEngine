@@ -88,7 +88,7 @@ public class EnemyController : MonoBehaviour
         {
             GotoNextPoint();
         }
-        if (distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
+        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false) || (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting))
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
