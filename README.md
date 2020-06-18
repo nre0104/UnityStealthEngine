@@ -10,7 +10,7 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
 
 ## Komponenten
 - Gegner `(branch feature/enemy)`
-    - [ ] Patrullierende Gegner die sehen und hören
+    - [X] Patrullierende Gegner die sehen und hören
          
             "Sehen" wird über Vision-Cone dargestellt
             Hören über Vectorberechnung + Collider & Navmash (https://www.youtube.com/watch?v=mBGUY7EUxXQ)
@@ -23,7 +23,8 @@ Inspiration on gadgets: https://www.youtube.com/watch?v=QLWC081dDpc
             "Sichtbarkeit" über zentralen GameManager
             
 - Basic Stealth Komponenten
-    - [ ] Schleichen `(branch feature/sneak)`
+    - [X] Schleichen `(branch feature/sneak)`
+	- **Normaler Zustand ist laufen, in diesem wird man nicht gehört, bei rennen (Shift) schon**
         - Wenn Player in Hörweite von Gegnern muss er schleichen   
                 
                 Via Statemachine --> wenn {Taste} gedrückt reduziere Geschwindigkeit
