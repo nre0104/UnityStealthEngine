@@ -19,14 +19,14 @@ public class UIController : MonoBehaviour
 
         GameManager.SeeBar = SeeBar;
         GameManager.HearBar = HearBar;
+    }
 
-        void Update()
+    void Update()
+    {
+        if (Math.Abs(SeeBar.slider.value - SeeBar.slider.maxValue) < 0.02f)
         {
-            if (Math.Abs(SeeBar.slider.value - SeeBar.slider.maxValue) < 0.02f)
-            {
-                Time.timeScale = 0.0f;
-                lostView.SetActive(true);
-            }
+            Time.timeScale = 0.0f;
+            lostView.SetActive(true);
         }
     }
 }
