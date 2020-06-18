@@ -65,7 +65,8 @@ public class InputManager : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Interactable>() != null)
                 {
-                    Destroy(hit.transform.gameObject);
+                    hit.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    //hit.transform.GetComponent<Renderer>().material = //TODO: set a stun Material
                 }
             }
 

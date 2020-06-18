@@ -53,6 +53,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 
+        
+    }
+
+    void LateUpdate()
+    {
         switch (state)
         {
             default:
@@ -70,10 +75,7 @@ public class EnemyController : MonoBehaviour
                 GetDistracted();
                 break;
         }
-    }
 
-    void LateUpdate()
-    {
         ViewVisualizer viewVisualizer = new ViewVisualizer(transform, LookRadius, fieldOfViewAngle, targetLayer, obstacleLayer, 6f, 6, 0.5f, viewMeshFilter);
         viewVisualizer.DrawFieldOfView();
     }
@@ -203,6 +205,14 @@ public class EnemyController : MonoBehaviour
     {
         agent.SetDestination(stonePosition);
         FaceTarget(stonePosition);
+        float distance = Vector3.Distance(target.position, transform.position);
+        Vector3 direction = target.position - transform.position;
+        float angle = Vector3.Angle(direction, transform.forward);
+
+        if (angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
+        {
+            state = State.Chase;
+        }
     }
 
     void ReturnToPatrolling()
