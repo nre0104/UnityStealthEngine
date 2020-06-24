@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Stone
   - Body
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - 
   - Minimap
   - Map
-  - 
+  - Ground
   - 
   - Visual
   - Player
