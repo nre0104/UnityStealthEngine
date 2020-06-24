@@ -75,7 +75,6 @@ namespace Vision
                         if (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden)
                         {
                             // Found target
-                            Debug.Log("Seen");
                             GameManager.PlayerIsSeen = true;
                             OnTargetFound.Invoke();
 
