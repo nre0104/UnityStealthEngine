@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Stone
+  - Body
   layers:
   - Default
   - TransparentFX

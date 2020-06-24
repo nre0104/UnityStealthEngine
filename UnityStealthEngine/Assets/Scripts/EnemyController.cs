@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
         GotoNextPoint();
     }
 
-    void LateUpdate()
+    void Update()
     {
         switch (state)
         {
@@ -76,7 +76,10 @@ public class EnemyController : MonoBehaviour
                 Stuned();
                 break;
         }
+    }
 
+    void LateUpdate()
+    {
         ViewVisualizer viewVisualizer = new ViewVisualizer(transform, LookRadius, fieldOfViewAngle, targetLayer, obstacleLayer, 6f, 6, 0.5f, viewMeshFilter);
         viewVisualizer.DrawFieldOfView();
     }
@@ -91,12 +94,15 @@ public class EnemyController : MonoBehaviour
         {
             GotoNextPoint();
         }
-        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false) || (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting))
+        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f || (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)) && target.GetComponent<PlayerController>().isHidden == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
             {
-                state = State.Chase;
+                if (hit.transform.gameObject == target.transform.gameObject)
+                {
+                    state = State.Chase;
+                }
             }
         }
     }
@@ -148,7 +154,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting == true)
+        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)
         {
             OnHearedEvent.Invoke();
             agent.SetDestination(target.position);
@@ -202,6 +208,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void ReturnToPatrolling()
+    {
+        state = State.Patrol;
+    }
+
     void GetDistracted()
     {
         agent.SetDestination(Stone.transform.position);
@@ -214,11 +225,6 @@ public class EnemyController : MonoBehaviour
         {
             state = State.Chase;
         }
-    }
-
-    void ReturnToPatrolling()
-    {
-        state = State.Patrol;
     }
 
     void FaceTarget(Vector3 position)
