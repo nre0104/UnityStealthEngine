@@ -16458,8 +16458,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Arrive at blue \"Platform B\" without been seen or heared to win\n\nW/A/S/D
     - Move\nC - Start/Kill drone\n\tMouse0 - mark enemies\nM - Show/hide minimap
-    for pings\nF - Trow ping-bomb\nShift - run (enemies can hear you)\n\nHide in
-    shadow-areas to hide from enemies"
+    for pings\nF - Trow ping-bomb\nE - Freeze enemies for a few seconds\nShift -
+    run (enemies can hear you)\n\nHide in shadow-areas to hide from enemies"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16528,12 +16528,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 417097695}
-    characterCount: 251
+    characterCount: 288
     spriteCount: 0
-    spaceCount: 49
-    wordCount: 52
+    spaceCount: 57
+    wordCount: 60
     linkCount: 0
-    lineCount: 11
+    lineCount: 12
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -67240,7 +67240,7 @@ GameObject:
   - component: {fileID: 1122296584}
   - component: {fileID: 1122296583}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Keymap Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
