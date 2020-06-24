@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        oldMaterial = transform.GetChild(2).GetComponent<Renderer>().material;
+        oldMaterial = transform.GetChild(1).GetComponent<Renderer>().material;
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
