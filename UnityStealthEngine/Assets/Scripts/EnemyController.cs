@@ -80,8 +80,6 @@ public class EnemyController : MonoBehaviour
                 Stuned();
                 break;
         }
-        ViewVisualizer viewVisualizer = new ViewVisualizer(transform, LookRadius, fieldOfViewAngle, targetLayer, obstacleLayer, 6f, 6, 0.5f, viewMeshFilter);
-        viewVisualizer.DrawFieldOfView();
     }
 
     void PatrolMap()
