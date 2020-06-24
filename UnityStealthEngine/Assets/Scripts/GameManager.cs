@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static List<GameObject> MarkedEnemies = new List<GameObject>();
     public static Queue<Material> OldEnemiesMaterials = new Queue<Material>();
     public static GameObject player;
+    public static bool PlayerIsSeen = false;
 
     public static BarController SeeBar;
     public static BarController HearBar;

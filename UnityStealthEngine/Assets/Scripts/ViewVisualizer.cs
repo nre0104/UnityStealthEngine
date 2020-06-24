@@ -58,7 +58,7 @@ namespace Vision
 
         void FindVisibleTargets()
         {
-            seen = false;
+            GameManager.PlayerIsSeen = false;
             visibleTargets.Clear();
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
@@ -76,7 +76,7 @@ namespace Vision
                         {
                             // Found target
                             Debug.Log("Seen");
-                            seen = true;
+                            GameManager.PlayerIsSeen = true;
                             OnTargetFound.Invoke();
 
                             visibleTargets.Add(target);
@@ -85,7 +85,7 @@ namespace Vision
                 }
             }
 
-            if (!seen)
+            if (!GameManager.PlayerIsSeen)
             {
                 OnTargetLost.Invoke();
             }
