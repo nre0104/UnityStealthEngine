@@ -110,7 +110,7 @@ public class EnemyController : MonoBehaviour
 
         //|| (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)
 
-        if ((CalculatePathLength(target.transform.position) <= LookRadius) && target.GetComponent<PlayerController>().isSprinting)
+        if ((CalculatePathLength(target.transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting) && target.GetComponent<PlayerController>().isHidden == false)
         {
             OnHearedEvent.Invoke();
             state = State.Chase;
