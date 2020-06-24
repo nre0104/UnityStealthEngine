@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngineInternal;
 
 namespace Drone
 {
@@ -28,13 +29,14 @@ namespace Drone
             {
                 if (hit.transform.gameObject.GetComponentsInChildren<Renderer>() != null)
                 {
+                    Debug.Log(hit.transform.gameObject.name);
                     GameObject obj = hit.transform.gameObject;
                     for (int i = 0; i < obj.transform.childCount; i++)
                     {
                         if (obj.transform.GetChild(i).tag == "Body")
                         {
-                            GameManager.OldEnemiesMaterials.Enqueue(obj.transform.GetChild(2).GetComponent<Renderer>().material);
-                            obj.transform.GetChild(2).GetComponent<Renderer>().material = visibleMaterial;
+                            GameManager.OldEnemiesMaterials.Enqueue(obj.transform.GetChild(i).GetComponent<Renderer>().material);
+                            obj.transform.GetChild(i).GetComponent<Renderer>().material = visibleMaterial;
                         }
                     }
                     GameManager.MarkedEnemies.Add(obj);

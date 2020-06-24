@@ -282,7 +282,7 @@ public class EnemyController : MonoBehaviour
         {
             if (transform.GetChild(i).tag == "Body")
             {
-                transform.GetChild(2).GetComponent<Renderer>().material = oldMaterial;
+                transform.GetChild(i).GetComponent<Renderer>().material = oldMaterial;
             }
         }
     }

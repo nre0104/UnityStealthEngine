@@ -73,7 +73,7 @@ public class InputManager : MonoBehaviour
                     {
                         if (hit.transform.GetChild(i).tag == "Body")
                         {
-                            hit.transform.GetChild(2).GetComponent<Renderer>().material = StunMaterial;
+                            hit.transform.GetChild(i).GetComponent<Renderer>().material = StunMaterial;
                         }
                     }
                 }
