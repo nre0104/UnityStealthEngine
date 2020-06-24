@@ -33,8 +33,8 @@ namespace Drone
                     {
                         if (obj.transform.GetChild(i).tag == "Body")
                         {
-                            GameManager.OldEnemiesMaterials.Enqueue(obj.transform.GetChild(2).GetComponent<Renderer>().material);
-                            obj.transform.GetChild(2).GetComponent<Renderer>().material = visibleMaterial;
+                            GameManager.OldEnemiesMaterials.Enqueue(obj.transform.GetChild(1).GetComponent<Renderer>().material);
+                            obj.transform.GetChild(1).GetComponent<Renderer>().material = visibleMaterial;
                         }
                     }
                     GameManager.MarkedEnemies.Add(obj);
