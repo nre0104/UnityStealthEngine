@@ -26,12 +26,17 @@ namespace Drone
 
             if (Physics.Raycast(ray, out hit, markingRang, layer))
             {
-                if (hit.transform.GetComponent<Renderer>() != null)
+                if (hit.transform.gameObject.GetComponentsInChildren<Renderer>() != null)
                 {
                     GameObject obj = hit.transform.gameObject;
-                    GameManager.OldEnemiesMaterials.Enqueue(obj.GetComponent<Renderer>().material);
-
-                    obj.GetComponent<Renderer>().material = visibleMaterial;
+                    for (int i = 0; i < obj.transform.childCount; i++)
+                    {
+                        if (obj.transform.GetChild(i).tag == "Body")
+                        {
+                            GameManager.OldEnemiesMaterials.Enqueue(obj.transform.GetChild(2).GetComponent<Renderer>().material);
+                            obj.transform.GetChild(2).GetComponent<Renderer>().material = visibleMaterial;
+                        }
+                    }
                     GameManager.MarkedEnemies.Add(obj);
                 }
                 else
@@ -45,7 +50,13 @@ namespace Drone
         {
             foreach (var markedEnemy in GameManager.MarkedEnemies)
             {
-                markedEnemy.gameObject.GetComponent<Renderer>().material = GameManager.OldEnemiesMaterials.Dequeue();
+                for (int i = 0; i < markedEnemy.transform.childCount; i++)
+                {
+                    if (markedEnemy.transform.GetChild(i).tag == "Body")
+                    {
+                        markedEnemy.transform.GetChild(i).GetComponent<Renderer>().material = GameManager.OldEnemiesMaterials.Dequeue();
+                    }
+                }
             }
         }
     }

@@ -54,12 +54,6 @@ public class EnemyController : MonoBehaviour
         GotoNextPoint();
     }
 
-    void Update()
-    {
-
-        
-    }
-
     void LateUpdate()
     {
         switch (state)
