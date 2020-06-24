@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     private int destination = 0;
     public State state;
     private Vector3 roamPosition;
-    private Vector3 stonePosition;
+    private GameObject Stone;
     public bool isStuned;
     private Material oldMaterial;
 
@@ -188,24 +188,24 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter(Collider other)
     {
-        if (collider.tag == "Stone" && state != State.Chase)
+        if (other.tag == "Stone" && state != State.Chase)
         {
+            Stone = other.transform.gameObject;
             agent.isStopped = true;
             agent.ResetPath();
             agent.isStopped = false;
             state = State.Distracted;
             Debug.Log("Stone Collided");
-            stonePosition = collider.gameObject.transform.position;
             Invoke("ReturnToPatrolling", distractionTime);
         }
     }
 
     void GetDistracted()
     {
-        agent.SetDestination(stonePosition);
-        FaceTarget(stonePosition);
+        agent.SetDestination(Stone.transform.position);
+        FaceTarget(Stone.transform.position);
         float distance = Vector3.Distance(target.position, transform.position);
         Vector3 direction = target.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
@@ -265,6 +265,12 @@ public class EnemyController : MonoBehaviour
     {
         isStuned = false;
         state = State.Patrol;
-        transform.GetChild(2).GetComponent<Renderer>().material = oldMaterial;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).tag == "Body")
+            {
+                transform.GetChild(2).GetComponent<Renderer>().material = oldMaterial;
+            }
+        }
     }
 }

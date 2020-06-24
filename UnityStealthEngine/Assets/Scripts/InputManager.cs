@@ -69,7 +69,13 @@ public class InputManager : MonoBehaviour
                 if (hit.collider.GetComponent<Interactable>() != null)
                 {
                     hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stuned;
-                    hit.transform.GetChild(2).GetComponent<Renderer>().material = StunMaterial;
+                    for (int i = 0; i < hit.transform.childCount; i++)
+                    {
+                        if (hit.transform.GetChild(i).tag == "Body")
+                        {
+                            hit.transform.GetChild(2).GetComponent<Renderer>().material = StunMaterial;
+                        }
+                    }
                 }
             }
 
