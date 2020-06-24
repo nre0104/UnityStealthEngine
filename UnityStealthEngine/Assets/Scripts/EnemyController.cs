@@ -43,10 +43,6 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        viewMesh = new Mesh();
-        viewMesh.name = "View Mesh";
-        viewMeshFilter.mesh = viewMesh;
-
         oldMaterial = transform.GetChild(2).GetComponent<Renderer>().material;
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
