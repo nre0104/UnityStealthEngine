@@ -56,6 +56,10 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+    }
+
+    void LateUpdate()
+    {
         switch (state)
         {
             default:
@@ -76,10 +80,6 @@ public class EnemyController : MonoBehaviour
                 Stuned();
                 break;
         }
-    }
-
-    void LateUpdate()
-    {
         ViewVisualizer viewVisualizer = new ViewVisualizer(transform, LookRadius, fieldOfViewAngle, targetLayer, obstacleLayer, 6f, 6, 0.5f, viewMeshFilter);
         viewVisualizer.DrawFieldOfView();
     }
@@ -94,7 +94,9 @@ public class EnemyController : MonoBehaviour
         {
             GotoNextPoint();
         }
-        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f || (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)) && target.GetComponent<PlayerController>().isHidden == false)
+
+        // Enemy sees the Target in the patrolling State and changes into the chasing state
+        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f ) && target.GetComponent<PlayerController>().isHidden == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
@@ -104,6 +106,14 @@ public class EnemyController : MonoBehaviour
                     state = State.Chase;
                 }
             }
+        }
+
+        //|| (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)
+
+        if ((CalculatePathLength(target.transform.position) <= LookRadius) && target.GetComponent<PlayerController>().isSprinting)
+        {
+            OnHearedEvent.Invoke();
+            state = State.Chase;
         }
     }
 
@@ -140,27 +150,24 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = target.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
+        agent.SetDestination(target.position);
         if (angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
             {
-                agent.SetDestination(target.position);
-                OnViewEvent.Invoke();
-                if (distance <= agent.stoppingDistance)
+                if (hit.transform.gameObject == target.transform.gameObject)
                 {
-                    FaceTarget(target.position);
+                    OnViewEvent.Invoke();
+                    if (distance <= agent.stoppingDistance)
+                    {
+                        FaceTarget(target.position);
+                    }
                 }
             }
         }
 
-        if (CalculatePathLength(target.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)
-        {
-            OnHearedEvent.Invoke();
-            agent.SetDestination(target.position);
-        }
-
-        if (distance >= LookRadius || CalculatePathLength(target.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
+        if (distance >= LookRadius || CalculatePathLength(target.transform.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
             OnHearedLostEvent.Invoke();
             OnViewLostEvent.Invoke();
@@ -199,9 +206,7 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "Stone" && state != State.Chase)
         {
             Stone = other.transform.gameObject;
-            agent.isStopped = true;
             agent.ResetPath();
-            agent.isStopped = false;
             state = State.Distracted;
             Debug.Log("Stone Collided");
             Invoke("ReturnToPatrolling", distractionTime);
@@ -215,15 +220,23 @@ public class EnemyController : MonoBehaviour
 
     void GetDistracted()
     {
-        agent.SetDestination(Stone.transform.position);
-        FaceTarget(Stone.transform.position);
-        float distance = Vector3.Distance(target.position, transform.position);
-        Vector3 direction = target.position - transform.position;
-        float angle = Vector3.Angle(direction, transform.forward);
+        if(Stone != null){
+            agent.SetDestination(Stone.transform.position);
+            FaceTarget(Stone.transform.position);
+            Vector3 direction = target.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
 
-        if (angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
-        {
-            state = State.Chase;
+            if (angle <= fieldOfViewAngle * 0.5f && target.GetComponent<PlayerController>().isHidden == false)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
+                {
+                    if (hit.transform.gameObject == target.transform.gameObject)
+                    {
+                        state = State.Chase;
+                    }
+                }
+            }
         }
     }
 
