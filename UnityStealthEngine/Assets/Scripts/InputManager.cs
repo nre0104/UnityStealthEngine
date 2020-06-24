@@ -85,7 +85,7 @@ public class InputManager : MonoBehaviour
     void UseDrone()
     {
         PlayerCamera.SetActive(false);
-        drone = Instantiate(DronePrefab, spawnPoint.transform.position, Quaternion.identity);
+        drone = Instantiate(DronePrefab, spawnPoint.transform.position, GameManager.player.transform.rotation);
         GameManager.player.GetComponent<vThirdPersonInput>().enabled = false;
     }
 
