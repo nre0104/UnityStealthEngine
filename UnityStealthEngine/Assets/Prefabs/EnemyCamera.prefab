@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Bits: 1073741824
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 201326593
   visibleTargets: []
   meshResolution: 10
   edgeResolveIterations: 6
@@ -65,10 +65,32 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 8200826213922056341}
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: IncreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: DecreaseByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!111 &2746762806504108241
 Animation:
   m_ObjectHideFlags: 0
