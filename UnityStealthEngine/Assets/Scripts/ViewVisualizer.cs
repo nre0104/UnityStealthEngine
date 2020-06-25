@@ -65,31 +65,27 @@ namespace Vision
             {
                 Transform target = targetsInViewRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+
                 if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 {
-                    float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) 
+                        && (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden))
                     {
-                        Debug.Log("1. ");
+                        // Found target
+                        Debug.Log("Seen");
+                        OnTargetFound.Invoke();
 
-                        if (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden)
-                        {
-                            // Found target
-                            GameManager.PlayerIsSeen = true;
-                            Debug.Log("Seen");
-                            OnTargetFound.Invoke();
-
-                            visibleTargets.Add(target);
-                        }
+                        visibleTargets.Add(target);
                     }
                 }
-            }
 
-            if (!GameManager.PlayerIsSeen)
-            {
-                OnTargetLost.Invoke();
+                if (Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)
+                    || (target.gameObject.GetComponent<PlayerController>() != null && target.gameObject.GetComponent<PlayerController>().isHidden))
+                {
+                    Debug.Log("Lost");
+                    OnTargetLost.Invoke();
+                }
             }
         }
 

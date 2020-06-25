@@ -10,10 +10,10 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        SeeBar.SetMax(5);
+        SeeBar.SetMax(15);
         SeeBar.SetSlide(0);
         
-        HearBar.SetMax(5);
+        HearBar.SetMax(15);
         HearBar.SetSlide(0);
 
         GameManager.SeeBar = SeeBar;
