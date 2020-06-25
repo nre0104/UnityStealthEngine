@@ -29,8 +29,6 @@ public class EnemyController : MonoBehaviour
 
     public UnityEvent OnHearedEvent;
     public UnityEvent OnHearedLostEvent;
-    public UnityEvent OnViewEvent;
-    public UnityEvent OnViewLostEvent;
 
     public enum State
     {
@@ -90,7 +88,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // Enemy sees the Target in the patrolling State and changes into the chasing state
-        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f ) && target.GetComponent<PlayerController>().isHidden == false)
+        if ((distance <= LookRadius && angle <= fieldOfViewAngle * 0.5f) && target.GetComponent<PlayerController>().isHidden == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, LookRadius))
@@ -152,7 +150,6 @@ public class EnemyController : MonoBehaviour
             {
                 if (hit.transform.gameObject == target.transform.gameObject)
                 {
-                    OnViewEvent.Invoke();
                     if (distance <= agent.stoppingDistance)
                     {
                         FaceTarget(target.position);
@@ -164,7 +161,6 @@ public class EnemyController : MonoBehaviour
         if (distance >= LookRadius || CalculatePathLength(target.transform.position) >= LookRadius || target.GetComponent<PlayerController>().isHidden == true)
         {
             OnHearedLostEvent.Invoke();
-            OnViewLostEvent.Invoke();
             state = State.Search;
         }
     }
@@ -214,7 +210,8 @@ public class EnemyController : MonoBehaviour
 
     void GetDistracted()
     {
-        if(Stone != null){
+        if (Stone != null)
+        {
             agent.SetDestination(Stone.transform.position);
             FaceTarget(Stone.transform.position);
             Vector3 direction = target.position - transform.position;
@@ -271,6 +268,9 @@ public class EnemyController : MonoBehaviour
             agent.isStopped = false;
             Invoke("Destuned", 10f);
             isStuned = true;
+
+            gameObject.GetComponent<ViewVisualizer>().StopAllCoroutines();
+            gameObject.GetComponent<ViewVisualizer>().enabled = false;
         }
     }
 
@@ -278,6 +278,9 @@ public class EnemyController : MonoBehaviour
     {
         isStuned = false;
         state = State.Patrol;
+        gameObject.GetComponent<ViewVisualizer>().enabled = true;
+        gameObject.GetComponent<ViewVisualizer>().StartCoroutine("FindTargetsWithDelay", .2f);
+
         for (int i = 0; i < transform.childCount; i++)
         {
             if (transform.GetChild(i).tag == "Body")

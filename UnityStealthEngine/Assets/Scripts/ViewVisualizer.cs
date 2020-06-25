@@ -58,7 +58,6 @@ namespace Vision
 
         void FindVisibleTargets()
         {
-            GameManager.PlayerIsSeen = false;
             visibleTargets.Clear();
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
@@ -70,12 +69,16 @@ namespace Vision
                 if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 {
                     float dstToTarget = Vector3.Distance(transform.position, target.position);
+
                     if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                     {
+                        Debug.Log("1. ");
+
                         if (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden)
                         {
                             // Found target
                             GameManager.PlayerIsSeen = true;
+                            Debug.Log("Seen");
                             OnTargetFound.Invoke();
 
                             visibleTargets.Add(target);

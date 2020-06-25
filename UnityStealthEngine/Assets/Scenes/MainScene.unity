@@ -9991,6 +9991,11 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108240, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: m_Enabled
@@ -19094,6 +19099,10 @@ PrefabInstance:
     - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
@@ -28960,6 +28969,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -31981,6 +31994,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -39221,6 +39238,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -39559,6 +39580,10 @@ PrefabInstance:
     - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
@@ -41472,6 +41497,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: OnViewEvent.m_PersistentCalls.m_Calls.Array.size
@@ -43502,6 +43531,14 @@ PrefabInstance:
     - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 1073741824
+      objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
@@ -73104,6 +73141,14 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 1073741824
+      objectReference: {fileID: 0}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: OnViewEvent.m_PersistentCalls.m_Calls.Array.size
@@ -78476,6 +78521,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -80747,6 +80796,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -87164,6 +87217,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -98406,6 +98463,10 @@ PrefabInstance:
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 886721544, guid: 92a5f3644fad49d4b8132b9774ec1882, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 67108865
+      objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: points.Array.size
@@ -120948,7 +121009,7 @@ PrefabInstance:
     - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
@@ -121003,7 +121064,7 @@ PrefabInstance:
     - target: {fileID: 2391927472779682629, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: obstacleMask.m_Bits
-      value: 201326593
+      value: 67108865
       objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108243, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
