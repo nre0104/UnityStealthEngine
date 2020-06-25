@@ -10021,6 +10021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCamera (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2746762806504108243, guid: 090861753c47949489c962d06beb12cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2746762806504108252, guid: 090861753c47949489c962d06beb12cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -109445,7 +109450,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5610
+  m_Name: pb_Mesh-1240
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
