@@ -24,13 +24,11 @@ public class BarController : MonoBehaviour
 
     public void IncreaseByOne()
     {
-        Debug.Log("+");
         slider.value += 1;
     }
 
     public void DecreaseByOne()
     {
-        Debug.Log("-");
         slider.value -= 1;
     }
 }

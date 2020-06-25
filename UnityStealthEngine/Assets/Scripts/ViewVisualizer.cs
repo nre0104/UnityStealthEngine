@@ -72,10 +72,7 @@ namespace Vision
                     if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) 
                         && (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden))
                     {
-                        // Found target
-                        Debug.Log("Seen");
                         OnTargetFound.Invoke();
-
                         visibleTargets.Add(target);
                     }
                 }
@@ -83,7 +80,6 @@ namespace Vision
                 if (Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)
                     || (target.gameObject.GetComponent<PlayerController>() != null && target.gameObject.GetComponent<PlayerController>().isHidden))
                 {
-                    Debug.Log("Lost");
                     OnTargetLost.Invoke();
                 }
             }
