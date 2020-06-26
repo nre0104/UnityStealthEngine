@@ -81,7 +81,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Patrolling the Map between Transforms and switches into Chasing State in the event of seeing or hearing the Enemy
+    /**
+     * Patrolling the Map between Transforms and switches into Chasing State in the event of seeing or hearing the Enemy
+     */
     void PatrolMap()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -114,7 +116,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Moves to a Random Position inside the Map after losing the Target 
+    /**
+     * Moves to a Random Position inside the Map after losing the Target 
+     */
     void SearchForPlayer()
     {
         float reachedPositionDistance = 2f;
@@ -142,7 +146,9 @@ public class EnemyController : MonoBehaviour
         return new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, UnityEngine.Random.Range(-1f, 1f)).normalized;
     }
 
-    // Moves to the Targets position and Faces the target in case of beeing to close to him to actually move
+    /**
+     * Moves to the Targets position and Faces the target in case of being to close to him to actually move
+     */
     void ChasePlayer()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -172,9 +178,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Calculates the Path to the Target by creating a chain of linked Vectors
-    // Is used to hear the Enemy Moving in a certain distance behind Walls
-    // @param: Vector3 targetPosition 
+    /**
+     * Calculates the Path to the Target by creating a chain of linked Vectors
+     * Is used to hear the Enemy Moving in a certain distance behind Walls
+     * @param: Vector3 targetPosition 
+     */
     float CalculatePathLength(Vector3 targetPosition)
     {
         NavMeshPath path = new NavMeshPath();
@@ -200,7 +208,9 @@ public class EnemyController : MonoBehaviour
         return pathLength;
     }
 
-    // Uses The OnTriggerEnter Method to get the the distraction Object with Tag Stone
+    /**
+     * Uses The OnTriggerEnter Method to get the the distraction Object with Tag Stone
+     */
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Stone" && state != State.Chase)
@@ -218,7 +228,9 @@ public class EnemyController : MonoBehaviour
         state = State.Patrol;
     }
 
-    // Binds the target to the Stone. If the Enemy sees the Target it starts chasing him
+    /**
+     * Binds the target to the Stone. If the Enemy sees the Target it starts chasing him
+     */
     void GetDistracted()
     {
         if (Stone != null)
@@ -270,7 +282,9 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, LookRadius);
     }
 
-    // Makes the Enemy inoparable for 10 seconds, disables the viewVisualizer and stops all Coroutines
+    /**
+     * Makes the Enemy inoparable for 10 seconds, disables the viewVisualizer and stops all Coroutines
+     */
     public void Stuned()
     {
         if (isStuned == false)
@@ -286,8 +300,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // Sets the Enemy into Patrol state and actives the ViewVisualizer and its Coroutine.
-    // Also sets the Material back to Standard
+    /**
+     * Sets the Enemy into Patrol state and actives the ViewVisualizer and its Coroutine.
+     * Also sets the Material back to Standard
+     */
     void Destuned()
     {
         isStuned = false;
