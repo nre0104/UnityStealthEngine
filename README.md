@@ -52,8 +52,14 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 	- ProGrids
 	- ProBuilder
 
-## Videolink
+## Links
+### Projektvideo
 https://www.dropbox.com/t/QDLUX5XQvP3PrnRN [YouTube]
 
-## Link zum Projekt
+### Link zum Projekt
 https://github.com/nre0104/UnityStealthEngine (master) [GitHub]
+
+## Hinweis
+	Die hier aufgestellten Assets, Sounds und anderen Inhalte sind Teilweise oder ganz von dritten erstellt worden. 
+	Soweit von diesen nicht anders angegeben liegt das Urheberrecht bei diesen und wir erheben keinerlei Ansprüche darauf. 
+	Das Repo dient lediglich zur Projektverwaltung und Projektabgabe für ein internes Hochschulprojekt.
