@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 768702377410878243}
   - component: {fileID: 768702377410878240}
   - component: {fileID: 966092391}
-  - component: {fileID: 1535338972}
   - component: {fileID: 886721544}
+  - component: {fileID: 8512607553207326040}
   m_Layer: 31
   m_Name: Enemy
   m_TagString: Enemy
@@ -185,16 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LookRadius: 6
   fieldOfViewAngle: 110
-  viewMeshFilter: {fileID: 0}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 1073741824
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 67108865
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolingPoints: []
   state: 0
   isStuned: 0
   OnHearedEvent:
@@ -236,34 +227,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnViewEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: IncreaseByOne
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnViewLostEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: DecreaseByOne
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!135 &966092391
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -277,19 +240,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 8
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1535338972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768702377410878241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76294831513067a41a173e96f4d6482a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
 --- !u!114 &886721544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,20 +279,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTargetLost:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &8512607553207326040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768702377410878241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76294831513067a41a173e96f4d6482a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
 --- !u!1 &768702377662091181
 GameObject:
   m_ObjectHideFlags: 0

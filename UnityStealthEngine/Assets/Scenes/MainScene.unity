@@ -19198,6 +19198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1806604930}
@@ -19231,6 +19236,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 808519341}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1806604930}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -29158,6 +29173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 593997124}
@@ -29191,6 +29211,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 285261817}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 593997124}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -32188,6 +32218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 45795890}
@@ -32221,6 +32256,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 45795890}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 539706167}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -39437,6 +39482,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1278335933}
@@ -39470,6 +39520,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 942272975}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1278335933}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -39711,7 +39771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760968860}
   m_Layer: 0
-  m_Name: WayPoints
+  m_Name: WayPoints (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39785,6 +39845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 439594478}
@@ -39828,6 +39893,26 @@ PrefabInstance:
       propertyPath: points.Array.data[3]
       value: 
       objectReference: {fileID: 426985266}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 426985266}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 439594478}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 914422887}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 2082544385}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -41713,6 +41798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 106666115}
@@ -41746,6 +41836,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 106666115}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 449145540}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -42173,8 +42273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombObject: {fileID: 8756243097738504221, guid: b5c80cb073a6ba0429d0a6e8bc7cbb30,
     type: 3}
-  spawnPoint: {fileID: 907504847}
-  throwForce: 500
+  bombSpawnPoint: {fileID: 907504847}
+  bombThrowForce: 1000
   PlayerCamera: {fileID: 329978820}
   DronePrefab: {fileID: 655480532325872838, guid: c3959840e7a782549adadaa7bbb750c9,
     type: 3}
@@ -43762,6 +43862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 251959962}
@@ -43795,6 +43900,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1072802322}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 251959962}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -73396,6 +73511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1384027822}
@@ -73434,6 +73554,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 631974471}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1384027822}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -78787,6 +78917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1782480652}
@@ -78840,6 +78975,26 @@ PrefabInstance:
       propertyPath: obstacleLayer.m_Bits
       value: 67108865
       objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 673369017}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1782480652}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 368499828}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 682789302}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -81067,6 +81222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 633875660}
@@ -81100,6 +81260,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1908510226}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 633875660}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -87493,6 +87663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1869918118}
@@ -87526,6 +87701,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1396878306}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1869918118}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
@@ -97476,25 +97661,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1532314782}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1535338965 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
-    type: 3}
-  m_PrefabInstance: {fileID: 806288461}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1535338972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535338965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76294831513067a41a173e96f4d6482a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
 --- !u!33 &1541161917 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 1915014910, guid: 92a5f3644fad49d4b8132b9774ec1882,
@@ -98744,6 +98910,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
+      propertyPath: patrolingPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
       propertyPath: points.Array.data[0]
       value: 
       objectReference: {fileID: 1592791036}
@@ -98777,6 +98948,16 @@ PrefabInstance:
       propertyPath: OnViewLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751940136}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 136606767}
+    - target: {fileID: 768702377410878240, guid: 92a5f3644fad49d4b8132b9774ec1882,
+        type: 3}
+      propertyPath: patrolingPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1592791036}
     - target: {fileID: 768702377410878241, guid: 92a5f3644fad49d4b8132b9774ec1882,
         type: 3}
       propertyPath: m_Name
