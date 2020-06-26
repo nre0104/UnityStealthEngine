@@ -52,6 +52,8 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 	- ProGrids
 	- ProBuilder
 
-### Videolink: https://www.dropbox.com/t/QDLUX5XQvP3PrnRN [YouTube]
+### Videolink
+https://www.dropbox.com/t/QDLUX5XQvP3PrnRN [YouTube]
 
-### Link zum Projekt: https://github.com/nre0104/UnityStealthEngine (master) [GitHub]
+### Link zum Projekt
+https://github.com/nre0104/UnityStealthEngine (master) [GitHub]
