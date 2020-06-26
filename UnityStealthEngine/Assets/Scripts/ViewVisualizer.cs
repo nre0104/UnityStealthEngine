@@ -7,9 +7,6 @@ using UnityEngine.Events;
 
 namespace Vision
 {
-    /**
-     * From Sebatian Lague's GitHub on https://github.com/SebLague/Field-of-View/blob/master/Episode%2002/Scripts/FieldOfView.cs
-     */
     public class ViewVisualizer : MonoBehaviour
     {
         public float viewRadius;

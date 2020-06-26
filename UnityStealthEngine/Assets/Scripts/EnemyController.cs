@@ -3,7 +3,6 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using Vision;
 
-// https://docs.unity3d.com/Manual/nav-AgentPatrol.html
 public class EnemyController : MonoBehaviour
 {
     public float LookRadius = 6f;
@@ -117,7 +116,7 @@ public class EnemyController : MonoBehaviour
     }
 
     /**
-     * Moves to a Random Position inside the Map after losing the Target 
+     * Moves to a Random Position inside the Map if losing the Target 
      */
     void SearchForPlayer()
     {
