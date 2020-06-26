@@ -68,7 +68,7 @@ public class InputManager : MonoBehaviour
             {
                 if (hit.collider.GetComponent<InteractableController>() != null)
                 {
-                    hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stuned;
+                    hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stunned;
                     for (int i = 0; i < hit.transform.childCount; i++)
                     {
                         if (hit.transform.GetChild(i).tag == "Body")

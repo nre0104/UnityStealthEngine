@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
      *   Chase:  Chases target
      *   Search: Searches - Go to a random position
      *   Distracted: Focus an Distraction-Object which hits the collider
-     *   Stuned: Is deactivated for X seconds
+     *   Stunned: Is deactivated for X seconds
     */
     public enum State
     {
@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         Chase,
         Search,
         Distracted,
-        Stuned
+        Stunned
     }
 
     void Start()
@@ -74,7 +74,7 @@ public class EnemyController : MonoBehaviour
             case State.Distracted:
                 GetDistracted();
                 break;
-            case State.Stuned:
+            case State.Stunned:
                 Stuned();
                 break;
         }
