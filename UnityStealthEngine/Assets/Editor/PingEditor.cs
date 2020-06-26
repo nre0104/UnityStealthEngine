@@ -1,7 +1,7 @@
 ﻿using System;
+using Assets.Scripts;
 using UnityEditor;
 using UnityEngine;
-using Ping;
 
 [CustomEditor(typeof(PingController))]
 public class PingEditor : Editor

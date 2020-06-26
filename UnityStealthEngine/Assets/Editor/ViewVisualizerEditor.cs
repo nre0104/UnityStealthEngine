@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Assets.Scripts;
+using UnityEditor;
 using UnityEngine;
 
 namespace Vision
