@@ -1,6 +1,10 @@
 ﻿using System;
+using Assets.Scripts.Player;
 using UnityEngine;
 
+/**
+ * Manages if the player is visible to enemies
+ */
 public class HideAreaController : MonoBehaviour
 {
     void OnTriggerStay(Collider other)

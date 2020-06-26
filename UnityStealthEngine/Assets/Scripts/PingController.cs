@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 
-namespace Ping
+namespace Assets.Scripts
 {
+    /**
+     * Creates an ping and writes the found GameObjects into the list PingedObjects of the static GameManager
+     */
     public class PingController : MonoBehaviour
     {
         public LayerMask PingLayer;
         public float PingRadius;
         public float PingDuration;
-
-        private void Start()
-        { 
-            // Ping();
-            // Invoke("Ping", 3f);
-        }
 
         public void Ping()
         {
@@ -32,11 +29,17 @@ namespace Ping
             Invoke("UnPing", PingDuration);
         }
 
+        /**
+         * Clear the list of pinged objects
+         */
         public void UnPing()
         {
             GameManager.PingedObjects.Clear();
         }
 
+        /**
+         * Remove on e object from the pinged objects list
+         */
         public void BlockPingFor(GameObject gameObj)
         {
             if (GameManager.PingedObjects.Contains(gameObj))

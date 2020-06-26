@@ -1,15 +1,19 @@
-﻿using UnityEngine;
-using Invector;
-using Invector.vCharacterController;
-using UnityEditor;
+﻿using Invector.vCharacterController;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    public bool isHidden = false;
-    public bool isSprinting;
-
-    void Update()
+    /**
+     * Provides the states of the player object
+     */
+    public class PlayerController : MonoBehaviour
     {
-        isSprinting = GetComponent<vThirdPersonController>().isSprinting;
+        public bool isHidden = false;
+        public bool isSprinting;
+
+        void Update()
+        {
+            isSprinting = GetComponent<vThirdPersonController>().isSprinting;
+        }
     }
 }

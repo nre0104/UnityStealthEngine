@@ -2,59 +2,65 @@
 using System.Collections;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public BarController SeeBar;
-    public BarController HearBar;
-
-    public GameObject lostView;
-
-    private int sliderValue = 0;
-    private int oldSliderValue = 0;
-
-    void Start()
+    /**
+     * Manages the UI-Components of the scenario
+     */
+    public class UIController : MonoBehaviour
     {
-        SeeBar.SetMax(15);
-        SeeBar.SetSlide(0);
+        public BarController SeeBar;
+        public BarController HearBar;
+
+        public GameObject lostView;
+
+        private int sliderValue = 0;
+        private int oldSliderValue = 0;
+
+        void Start()
+        {
+            SeeBar.SetMax(15);
+            SeeBar.SetSlide(0);
         
-        HearBar.SetMax(15);
-        HearBar.SetSlide(0);
+            HearBar.SetMax(15);
+            HearBar.SetSlide(0);
 
-        GameManager.SeeBar = SeeBar;
-        GameManager.HearBar = HearBar;
+            GameManager.SeeBar = SeeBar;
+            GameManager.HearBar = HearBar;
 
-        StartCoroutine("DecreaseValue", 0.25f);
-    }
-
-    void Update()
-    {
-        if (Math.Abs(SeeBar.slider.value - SeeBar.slider.maxValue) < 0.02f)
-        {
-            Time.timeScale = 0.0f;
-            lostView.SetActive(true);
+            StartCoroutine("DecreaseValue", 0.25f);
         }
 
-        sliderValue = Mathf.FloorToInt(SeeBar.slider.value);
-    }
+        void Update()
+        {
+            if (Math.Abs(SeeBar.slider.value - SeeBar.slider.maxValue) < 0.02f)
+            {
+                Time.timeScale = 0.0f;
+                lostView.SetActive(true);
+            }
 
-    IEnumerator DecreaseValue(float delay)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            DecreaseIfNotChanged();
+            sliderValue = Mathf.FloorToInt(SeeBar.slider.value);
         }
-    }
 
-    void DecreaseIfNotChanged()
-    {
-        if (sliderValue != oldSliderValue)
+        IEnumerator DecreaseValue(float delay)
         {
-            oldSliderValue = sliderValue;
+            while (true)
+            {
+                yield return new WaitForSeconds(delay);
+                DecreaseIfNotChanged();
+            }
         }
-        else
+
+        void DecreaseIfNotChanged()
         {
-            SeeBar.DecreaseByOne();
+            if (sliderValue != oldSliderValue)
+            {
+                oldSliderValue = sliderValue;
+            }
+            else
+            {
+                SeeBar.DecreaseByOne();
+            }
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Drone
+namespace Assets.Scripts.Drone
 {
+    /**
+     * WASD-Controller of the drone
+     */
     public class DroneMovementController : MonoBehaviour
     {
         public CharacterController controller;

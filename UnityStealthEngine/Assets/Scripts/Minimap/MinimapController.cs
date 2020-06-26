@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Minimap 
+namespace Assets.Scripts.Minimap 
 {
+    /**
+     * Controller of the Minimap
+     */
     public class MinimapController : MonoBehaviour
     {
         private static MinimapController instance;

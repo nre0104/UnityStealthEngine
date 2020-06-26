@@ -1,7 +1,12 @@
 ﻿using System.Collections.Generic;
-using Minimap;
+using Assets.Scripts.Minimap;
+using Assets.Scripts.UI;
 using UnityEngine;
 
+/**
+ * Centralized information manager of the game
+ * Stores different lists
+ */
 public class GameManager : MonoBehaviour
 {   
     private static GameManager _instance;
@@ -45,6 +50,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * Shows all MinimapIcons within the list
+     * <para>A list of GameObjects with an MinimapController</para>
+     */
     public void ShowAllMinimapIcons(List<GameObject> list)
     {
         foreach (var gameObj in list)
@@ -58,6 +67,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /**
+     * Hides all MinimapIcons within the list
+     * <para>A list of GameObjects with an MinimapController</para>
+     */
     public void HideAllMinimapIcons(List<GameObject> list)
     {
         foreach (var gameObj in list)

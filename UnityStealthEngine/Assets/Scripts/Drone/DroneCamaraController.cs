@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Drone
+namespace Assets.Scripts.Drone
 {
+    /**
+     * Rotation controller of the drone
+     */
     public class DroneCamaraController : MonoBehaviour
     {
         public float mouseSensitivity = 100f;

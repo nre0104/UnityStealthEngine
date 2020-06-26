@@ -1,10 +1,11 @@
-﻿using System;
-using Ping;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Scripts
 {
+    /**
+     * Implementation of the logic of a basic bomb
+     */
     public class BombBehaviourController : MonoBehaviour
     {
         public float delay;
@@ -55,6 +56,9 @@ namespace Assets.Scripts
             Destroy(gameObject);
         }
 
+        /**
+         * Increase the delay till the GO gets destroyed
+         */
         public void IncreaseDestroyDelay(float delay)
         {
             destroyObjDelay += delay;

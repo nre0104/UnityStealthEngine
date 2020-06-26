@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WinPointController : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public GameObject winView;
-    public LayerMask playerLayer;
-
-    private void OnTriggerEnter(Collider other)
+    /**
+     * Manages the Win-View
+     */
+    public class WinPointController : MonoBehaviour
     {
-        if ((playerLayer & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
+        public GameObject winView;
+        public LayerMask playerLayer;
+
+        private void OnTriggerEnter(Collider other)
         {
-            Time.timeScale = 0.0f;
-            winView.SetActive(true);
+            if ((playerLayer & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
+            {
+                Time.timeScale = 0.0f;
+                winView.SetActive(true);
+            }
         }
     }
 }

@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 
-/**
- * Defines the radius in which the object is interactable
- */
-public class InteractableController : MonoBehaviour
+namespace Assets.Scripts.Enemy
 {
-    public float radius = 3f;
-
-    void OnDrawGizmosSelected()
+    /**
+     * Defines the radius in which the object is Interactable
+     */
+    public class InteractableController : MonoBehaviour
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position,radius);
+        /**
+         * Radius in which the Enemy is interactable
+         */
+        public float radius = 3f;
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position,radius);
+        }
     }
 }

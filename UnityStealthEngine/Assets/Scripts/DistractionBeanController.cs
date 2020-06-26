@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 
-public class DistractionBeanController : MonoBehaviour
+namespace Assets.Scripts
 {
-    private Rigidbody myBody;
-    public float lifeTimer = 20f;
-    private float timer;
-
-    void Start()
+    /**
+    * Manager to destroy an GameObject after 20 seconds
+    */
+    public class DistractionBeanController : MonoBehaviour
     {
-        myBody = GetComponent<Rigidbody>();
-    }
+        private Rigidbody myBody;
+        public float lifeTimer = 20f;
+        private float timer;
 
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= lifeTimer)
+        void Start()
         {
-            Destroy(gameObject);
+            myBody = GetComponent<Rigidbody>();
+        }
+
+        void Update()
+        {
+            timer += Time.deltaTime;
+            if (timer >= lifeTimer)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

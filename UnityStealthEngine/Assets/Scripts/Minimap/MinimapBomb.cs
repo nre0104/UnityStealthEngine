@@ -1,25 +1,29 @@
-﻿using Assets.Scripts;
-using Ping;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MinimapBomb : MonoBehaviour
+namespace Assets.Scripts.Minimap
 {
-    void ShowIconsInRange()
+    /**
+     * Implementations to create a Ping-bomb out of the ping an a basic bomb
+     */
+    public class MinimapBomb : MonoBehaviour
     {
-        GameManager.Instance.ShowAllMinimapIcons(GameManager.PingedObjects);
-    }
+        void ShowIconsInRange()
+        {
+            GameManager.Instance.ShowAllMinimapIcons(GameManager.PingedObjects);
+        }
 
-    void HideIconsInRange()
-    {
-        GameManager.Instance.HideAllMinimapIcons(GameManager.PingedObjects);
-    }
+        void HideIconsInRange()
+        {
+            GameManager.Instance.HideAllMinimapIcons(GameManager.PingedObjects);
+        }
 
-    public void MinimapPing()
-    {
-        ShowIconsInRange();
-        var pingDuration = transform.gameObject.GetComponent<PingController>().PingDuration - 0.05f;
+        public void MinimapPing()
+        {
+            ShowIconsInRange();
+            var pingDuration = transform.gameObject.GetComponent<PingController>().PingDuration - 0.05f;
 
-        transform.gameObject.GetComponent<BombBehaviourController>().IncreaseDestroyDelay(pingDuration);
-        Invoke("HideIconsInRange", pingDuration);
+            transform.gameObject.GetComponent<BombBehaviourController>().IncreaseDestroyDelay(pingDuration);
+            Invoke("HideIconsInRange", pingDuration);
+        }
     }
 }

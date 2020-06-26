@@ -1,34 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class BarController : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public Slider slider;
-
-    public void SetSlide(int value)
+    public class BarController : MonoBehaviour
     {
-        slider.value = value;
-    }
+        public Slider slider;
 
-    public void SetMax(int value)
-    {
-        slider.maxValue = value;
-    }
+        public void SetSlide(int value)
+        {
+            slider.value = value;
+        }
 
-    public void SetMin(int value)
-    {
-        slider.minValue = value;
-    }
+        public void SetMax(int value)
+        {
+            slider.maxValue = value;
+        }
 
-    public void IncreaseByOne()
-    {
-        slider.value += 1;
-    }
+        public void SetMin(int value)
+        {
+            slider.minValue = value;
+        }
 
-    public void DecreaseByOne()
-    {
-        slider.value -= 1;
+        public void IncreaseByOne()
+        {
+            slider.value += 1;
+        }
+
+        public void DecreaseByOne()
+        {
+            slider.value -= 1;
+        }
     }
 }

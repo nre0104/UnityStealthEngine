@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Assets.Scripts.Player;
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.Events;
 
-namespace Vision
+namespace Assets.Scripts
 {
+    /**
+     * Visualizes the "view cone" and -angle via an mesh
+     */
     public class ViewVisualizer : MonoBehaviour
     {
         public float viewRadius;
@@ -75,6 +77,9 @@ namespace Vision
             }
         }
 
+        /**
+         * Render the mesh in the provided space
+         */
         public void DrawFieldOfView()
         {
             int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
@@ -177,6 +182,10 @@ namespace Vision
             }
         }
 
+        /**
+         * Calculates the view direction via the parameters
+         * <returns>The calculated direction</returns>
+         */
         public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
         {
             if (!angleIsGlobal)
@@ -186,6 +195,9 @@ namespace Vision
             return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
         }
 
+        /**
+         * Struct to store the infos of the view cast
+         */
         public struct ViewCastInfo
         {
             public bool hit;
@@ -202,6 +214,9 @@ namespace Vision
             }
         }
 
+        /**
+         * Struct to store the infos about the edges to resolve
+         */
         public struct EdgeInfo
         {
             public Vector3 pointA;

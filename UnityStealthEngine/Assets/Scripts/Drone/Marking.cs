@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngineInternal;
 
-namespace Drone
+namespace Assets.Scripts.Drone
 {
+    /**
+     * Provides funktionality to "mark"/tag one GameObject with a different material (visibleMaterial)
+     */
     public class Marking : MonoBehaviour
     {
         public Camera camera;

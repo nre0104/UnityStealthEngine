@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Minimap
+namespace Assets.Scripts.Minimap
 {
+    /**
+     * Controls the state of the MiniMap icons
+     */
     public class MinimapIconController : MonoBehaviour
     {
         public void Show()
