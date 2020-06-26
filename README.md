@@ -2,8 +2,8 @@
 26. Juni 2020
 
 ## Team
- - Isidoros Arvanitidis [197024] (@Isibisi93)[https://github.com/Isibisi93]
- - Nicolas Resch [197035] (@nre0104)[https://github.com/nre0104]
+ - Isidoros Arvanitidis [197024] [@Isibisi93](https://github.com/Isibisi93)
+ - Nicolas Resch [197035] [@nre0104](https://github.com/nre0104)
 
 ## Inspiration
 Hauptsächlich haben wir uns von der Videoreihe "School of Stealth" von Game Maker's Toolkit inspirieren lassen.

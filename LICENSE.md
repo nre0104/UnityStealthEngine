@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2020 Nicolas Resch (@nre0104)[https://github.com/nre0104] & Isidoros Arvanitidis (@Isibisi93)[https://github.com/Isibisi93]
+Copyright (c) 2020 Nicolas Resch [@nre0104](https://github.com/nre0104) & Isidoros Arvanitidis [@Isibisi93](https://github.com/Isibisi93)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
