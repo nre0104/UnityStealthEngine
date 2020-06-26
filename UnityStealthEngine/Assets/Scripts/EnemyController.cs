@@ -26,11 +26,11 @@ public class EnemyController : MonoBehaviour
     public UnityEvent OnHearedLostEvent;
 
     /*
-     *   Patrol: Moves between Transforms
-     *   Chase:  Chases Target Player
-     *   Search: Searches for a Random Point on the Map
-     *   Distracted: Focuses an Object which hits the Collider and has the Tag Stone
-     *   Stuned: Is Inoparable and cant see anything for 10 Seconds
+     *   Patrol: Moves between transforms
+     *   Chase:  Chases target
+     *   Search: Searches - Go to a random position
+     *   Distracted: Focus an Distraction-Object which hits the collider
+     *   Stuned: Is deactivated for X seconds
     */
     public enum State
     {
