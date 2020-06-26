@@ -30,6 +30,13 @@ public class EnemyController : MonoBehaviour
     public UnityEvent OnHearedEvent;
     public UnityEvent OnHearedLostEvent;
 
+    /*
+     *   Patrol: Moves between Transforms
+     *   Chase:  Chases Target Player
+     *   Search: Searches for a Random Point on the Map
+     *   Distracted: Focuses an Object which hits the Collider and has the Tag Stone
+     *   Stuned: Is Inoparable and cant see anything for 10 Seconds
+    */
     public enum State
     {
         Patrol,
@@ -41,17 +48,20 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        oldMaterial = transform.GetChild(1).GetComponent<Renderer>().material;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).tag == "Body")
+            {
+                oldMaterial = transform.GetChild(1).GetComponent<Renderer>().material;
+            }
+        }
         target = GameManager.player.transform;
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         GotoNextPoint();
     }
 
-    void Update()
-    {
-    }
-
+    // State Machine in switch case
     void LateUpdate()
     {
         switch (state)
@@ -76,6 +86,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Patrolling the Map between Transforms and switches into Chasing State in the event of seeing or hearing the Enemy
     void PatrolMap()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -100,8 +111,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        //|| (CalculatePathLength(transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting)
-
+        // Enemy hears Target end switches in the Chasing State 
         if ((CalculatePathLength(target.transform.position) <= LookRadius && target.GetComponent<PlayerController>().isSprinting) && target.GetComponent<PlayerController>().isHidden == false)
         {
             OnHearedEvent.Invoke();
@@ -109,6 +119,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Moves to a Random Position inside the Map after losing the Target 
     void SearchForPlayer()
     {
         float reachedPositionDistance = 2f;
@@ -136,6 +147,7 @@ public class EnemyController : MonoBehaviour
         return new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, UnityEngine.Random.Range(-1f, 1f)).normalized;
     }
 
+    // Moves to the Targets position and Faces the target in case of beeing to close to him to actually move
     void ChasePlayer()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -165,6 +177,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Calculates the Path to the Target by creating a chain of linked Vectors
+    // Is used to hear the Enemy Moving in a certain distance behind Walls
+    // @param: Vector3 targetPosition 
     float CalculatePathLength(Vector3 targetPosition)
     {
         NavMeshPath path = new NavMeshPath();
@@ -190,7 +205,7 @@ public class EnemyController : MonoBehaviour
         return pathLength;
     }
 
-
+    // Uses The OnTriggerEnter Method to get the the distraction Object with Tag Stone
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Stone" && state != State.Chase)
@@ -208,6 +223,7 @@ public class EnemyController : MonoBehaviour
         state = State.Patrol;
     }
 
+    // Binds the target to the Stone. If the Enemy sees the Target it starts chasing him
     void GetDistracted()
     {
         if (Stone != null)
@@ -259,6 +275,7 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, LookRadius);
     }
 
+    // Makes the Enemy inoparable for 10 seconds, disables the viewVisualizer and stops all Coroutines
     public void Stuned()
     {
         if (isStuned == false)
@@ -274,6 +291,8 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Sets the Enemy into Patrol state and actives the ViewVisualizer and its Coroutine.
+    // Also sets the Material back to Standard
     void Destuned()
     {
         isStuned = false;
