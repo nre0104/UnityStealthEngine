@@ -30,11 +30,13 @@ Weiter haben wir im UI der Spieler*innen Anzeigen erstellt, welche die eigene Si
 Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, wenn die Slider voll sind.
 
 ## Besonderheiten
- - Im EnemyController arbeiten wir mit States
- - ViewVisualization arbeitet mit UnityEvents
+ - ViewVisualization arbeitet mit UnityEvents, welche über den Editor hinzugefügt werden können
  - Um den View auch im Editor zu visualisieren, gibt es zwei Editor Skripte (Path ../Editor)
  - Die Skripte/Komponenten sind in namespaces und Verzeichnisse unterteilt
  - Die Steuerung innerhalb des Szenarios ist im Play-Mode oben links eingeblendet
+ - **Im EnemyController.cs arbeiten wir mit States**
+ 	- Dies beduetet wir haben ein enum State geschrieben, das die verschiedenen Zustände (Partullie, Suchen, Fangen, Verwirrung, Ablenkung) abbilded.
+	- Diese Zustände der Enemies werden **nicht** über eine Unity StateMachine gesteuert, sondern dann durch UnityEvents und eine SwitchCase-Anwesung im LateUpdate des EnemyController.cs
 
 ## Assets/Tutorials/Code Dritter
  - ViewVisualizier wurde mit Hilfe folgender Ressourcen erstellt:
