@@ -67,11 +67,13 @@ namespace Assets.Scripts.Player
                 Ray ray = new Ray(bombSpawnPoint.transform.position, bombSpawnPoint.transform.forward);
                 Debug.DrawLine(ray.origin, ray.GetPoint(3f), Color.cyan);
                 RaycastHit hit;
+                
                 if (Physics.Raycast(ray, out hit, 3f))
                 {
                     if (hit.collider.GetComponent<InteractableController>() != null)
                     {
                         hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stunned;
+
                         for (int i = 0; i < hit.transform.childCount; i++)
                         {
                             if (hit.transform.GetChild(i).tag == "Body")

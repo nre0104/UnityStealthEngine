@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LookRadius: 6
   fieldOfViewAngle: 110
+  enemyStunningTime: 10
   patrolingPoints: []
   state: 0
   isStuned: 0

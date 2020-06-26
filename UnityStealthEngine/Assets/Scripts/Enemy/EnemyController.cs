@@ -15,6 +15,7 @@ namespace Assets.Scripts.Enemy
         [Range(0, 360)]
         public float fieldOfViewAngle = 110f;
         private float distractionTime = 10f;
+        public float enemyStunningTime;
 
         NavMeshAgent agent;
         Transform target;
@@ -66,7 +67,6 @@ namespace Assets.Scripts.Enemy
         {
             switch (state)
             {
-                default:
                 case State.Patrol:
                     PatrolMap();
                     break;
@@ -82,6 +82,8 @@ namespace Assets.Scripts.Enemy
                     break;
                 case State.Stunned:
                     Stunned();
+                    break;
+                default:
                     break;
             }
         }
@@ -223,7 +225,6 @@ namespace Assets.Scripts.Enemy
                 Stone = other.transform.gameObject;
                 agent.ResetPath();
                 state = State.Distracted;
-                Debug.Log("Stone Collided");
                 Invoke("ReturnToPatrolling", distractionTime);
             }
         }
@@ -238,7 +239,7 @@ namespace Assets.Scripts.Enemy
          */
         void GetDistracted()
         {
-            if (Stone != null)
+            if (Stone != null && !isStuned)
             {
                 agent.SetDestination(Stone.transform.position);
                 FaceTarget(Stone.transform.position);
@@ -296,8 +297,7 @@ namespace Assets.Scripts.Enemy
             {
                 agent.isStopped = true;
                 agent.ResetPath();
-                agent.isStopped = false;
-                Invoke("Destunned", 10f);
+                Invoke("Destunned", enemyStunningTime);
                 isStuned = true;
 
                 gameObject.GetComponent<ViewVisualizer>().StopAllCoroutines();
@@ -312,6 +312,7 @@ namespace Assets.Scripts.Enemy
         void Destunned()
         {
             isStuned = false;
+            agent.isStopped = false;
             state = State.Patrol;
             gameObject.GetComponent<ViewVisualizer>().enabled = true;
             gameObject.GetComponent<ViewVisualizer>().StartCoroutine("FindTargetsWithDelay", .2f);
