@@ -12,7 +12,7 @@ Hauptsächlich haben wir uns von der Videoreihe "School of Stealth" von Game Mak
  - [3. Teil](https://www.youtube.com/watch?v=uF6c8KJuuEk) (Wurde weniger genutzt)
 
 Dabei haben wir uns das Ziel gesetzt, bei den Tools und Features unserer Projekts an [Metal Gear](https://en.wikipedia.org/wiki/Metal_Gear) zu orientieren, 
-optisch aber in Richtung von [Volume](https://en.wikipedia.org/wiki/Volume_(video_game)) zu gehen [1 Teil, 7:34 Min](https://youtu.be/Ay-5g36oFfc?t=454).
+optisch aber in Richtung von [Volume](https://en.wikipedia.org/wiki/Volume_(video_game)) zu gehen ([1 Teil, 7:34 Min](https://youtu.be/Ay-5g36oFfc?t=454)).
 
 ## Projektidee
 Als Basiskomponenten unserer Unity Stealth Engine haben wir einige Komponenten festgelegt. 
@@ -38,13 +38,13 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 
 ## Assets/Tutorials/Code Dritter
  - ViewVisualizier wurde mit Hilfe folgender Ressourcen erstellt:
-	[Teil 1](https://www.youtube.com/watch?v=rQG9aUWarwE)
+	[Teil 1](https://www.youtube.com/watch?v=rQG9aUWarwE),
 	[Teil 2](https://www.youtube.com/watch?v=73Dc5JTCmKI)
  - Minimap wurde mit Hilfe folgender Ressourcen erstellt:
-	[Teil 1](https://www.youtube.com/watch?v=kWhOMJMihC0)
+	[Teil 1](https://www.youtube.com/watch?v=kWhOMJMihC0),
 	[Teil 2](https://www.youtube.com/watch?v=TOygeraCrEQ)
  - Der EnemyController wurde mit Hilfe folgender Ressourcen erstellt:
-	[Unity Doc](https://docs.unity3d.com/Manual/nav-AgentPatrol.html)
+	[Unity Doc](https://docs.unity3d.com/Manual/nav-AgentPatrol.html),
 	[Video](https://www.youtube.com/watch?v=db0KWYaWfeM)
  - Assets/Packages/Imports
 	- [Standard Assets](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-for-unity-2017-3-32351)
@@ -55,7 +55,7 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 
 ## Links
 ### Projektvideo
-https://www.dropbox.com/t/QDLUX5XQvP3PrnRN [YouTube]
+https://youtu.be/mOChmolgFMg [YouTube]
 
 ### Link zum Projekt
 https://github.com/nre0104/UnityStealthEngine (master) [GitHub]
