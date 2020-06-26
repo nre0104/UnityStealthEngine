@@ -42274,7 +42274,7 @@ MonoBehaviour:
   bombObject: {fileID: 8756243097738504221, guid: b5c80cb073a6ba0429d0a6e8bc7cbb30,
     type: 3}
   bombSpawnPoint: {fileID: 907504847}
-  bombThrowForce: 1000
+  throwForce: 500
   PlayerCamera: {fileID: 329978820}
   DronePrefab: {fileID: 655480532325872838, guid: c3959840e7a782549adadaa7bbb750c9,
     type: 3}

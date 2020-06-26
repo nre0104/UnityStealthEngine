@@ -12,7 +12,7 @@ namespace Assets.Scripts.Player
     {
         public GameObject bombObject;
         public GameObject bombSpawnPoint;
-        public float bombThrowForce;
+        public float throwForce;
 
         public GameObject PlayerCamera;
         public GameObject DronePrefab;
@@ -104,7 +104,7 @@ namespace Assets.Scripts.Player
             GameObject bomb = Instantiate(bombObject, bombSpawnPoint.transform.position, Quaternion.identity);
             Rigidbody r = bomb.GetComponent<Rigidbody>();
         
-            r.AddForce(bombSpawnPoint.transform.forward * bombThrowForce * 1.05f);
+            r.AddForce(bombSpawnPoint.transform.forward * throwForce * 1.05f);
         }
 
         void ThrowStone()
@@ -112,7 +112,7 @@ namespace Assets.Scripts.Player
             GameObject stone = Instantiate(StonePrefab, bombSpawnPoint.transform.position, Quaternion.identity);
             Rigidbody r = stone.GetComponent<Rigidbody>();
 
-            r.AddForce(bombSpawnPoint.transform.forward * bombThrowForce * 1.05f);
+            r.AddForce(bombSpawnPoint.transform.forward * throwForce * 1.05f);
         }
     }
 }
