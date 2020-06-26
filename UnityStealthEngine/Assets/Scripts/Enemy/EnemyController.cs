@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour
                 GetDistracted();
                 break;
             case State.Stunned:
-                Stuned();
+                Stunned();
                 break;
         }
     }
@@ -284,14 +284,14 @@ public class EnemyController : MonoBehaviour
     /**
      * Makes the Enemy inoparable for 10 seconds, disables the viewVisualizer and stops all Coroutines
      */
-    public void Stuned()
+    public void Stunned()
     {
         if (isStuned == false)
         {
             agent.isStopped = true;
             agent.ResetPath();
             agent.isStopped = false;
-            Invoke("Destuned", 10f);
+            Invoke("Destunned", 10f);
             isStuned = true;
 
             gameObject.GetComponent<ViewVisualizer>().StopAllCoroutines();
@@ -303,7 +303,7 @@ public class EnemyController : MonoBehaviour
      * Sets the Enemy into Patrol state and actives the ViewVisualizer and its Coroutine.
      * Also sets the Material back to Standard
      */
-    void Destuned()
+    void Destunned()
     {
         isStuned = false;
         state = State.Patrol;
