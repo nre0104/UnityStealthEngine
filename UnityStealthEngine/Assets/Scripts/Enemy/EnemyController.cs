@@ -18,7 +18,7 @@ namespace Assets.Scripts.Enemy
 
         NavMeshAgent agent;
         Transform target;
-        public Transform[] points;
+        public Transform[] patrolingPoints;
 
         private int destination = 0;
         public State state;
@@ -268,16 +268,16 @@ namespace Assets.Scripts.Enemy
 
         void GotoNextPoint()
         {
-            // Returns if no points have been set up
-            if (points.Length == 0)
+            // Returns if no patrolingPoints have been set up
+            if (patrolingPoints.Length == 0)
                 return;
 
             // Set the agent to go to the currently selected destination.
-            agent.destination = points[destination].position;
+            agent.destination = patrolingPoints[destination].position;
 
             // Choose the next point in the array as the destination,
             // cycling to the start if necessary.
-            destination = (destination + 1) % points.Length;
+            destination = (destination + 1) % patrolingPoints.Length;
         }
 
 

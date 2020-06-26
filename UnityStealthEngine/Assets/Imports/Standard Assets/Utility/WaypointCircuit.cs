@@ -74,21 +74,21 @@ namespace UnityStandardAssets.Utility
             }
 
 
-            // get nearest two points, ensuring points wrap-around start & end of circuit
+            // get nearest two patrolingPoints, ensuring patrolingPoints wrap-around start & end of circuit
             p1n = ((point - 1) + numPoints)%numPoints;
             p2n = point;
 
-            // found point numbers, now find interpolation value between the two middle points
+            // found point numbers, now find interpolation value between the two middle patrolingPoints
 
             i = Mathf.InverseLerp(distances[p1n], distances[p2n], dist);
 
             if (smoothRoute)
             {
-                // smooth catmull-rom calculation between the two relevant points
+                // smooth catmull-rom calculation between the two relevant patrolingPoints
 
 
-                // get indices for the surrounding 2 points, because
-                // four points are required by the catmull-rom function
+                // get indices for the surrounding 2 patrolingPoints, because
+                // four patrolingPoints are required by the catmull-rom function
                 p0n = ((point - 2) + numPoints)%numPoints;
                 p3n = (point + 1)%numPoints;
 
@@ -106,7 +106,7 @@ namespace UnityStandardAssets.Utility
             }
             else
             {
-                // simple linear lerp between the two points:
+                // simple linear lerp between the two patrolingPoints:
 
                 p1n = ((point - 1) + numPoints)%numPoints;
                 p2n = point;
@@ -128,7 +128,7 @@ namespace UnityStandardAssets.Utility
 
         private void CachePositionsAndDistances()
         {
-            // transfer the position of each point and distances between points to arrays for
+            // transfer the position of each point and distances between patrolingPoints to arrays for
             // speed of lookup at runtime
             points = new Vector3[Waypoints.Length + 1];
             distances = new float[Waypoints.Length + 1];
