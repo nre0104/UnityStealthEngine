@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -7,6 +8,9 @@ public class UIController : MonoBehaviour
     public BarController HearBar;
 
     public GameObject lostView;
+
+    private int sliderValue = 0;
+    private int oldSliderValue = 0;
 
     void Start()
     {
@@ -18,6 +22,8 @@ public class UIController : MonoBehaviour
 
         GameManager.SeeBar = SeeBar;
         GameManager.HearBar = HearBar;
+
+        StartCoroutine("DecreaseValue", 0.25f);
     }
 
     void Update()
@@ -26,6 +32,29 @@ public class UIController : MonoBehaviour
         {
             Time.timeScale = 0.0f;
             lostView.SetActive(true);
+        }
+
+        sliderValue = Mathf.FloorToInt(SeeBar.slider.value);
+    }
+
+    IEnumerator DecreaseValue(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            DecreaseIfNotChanged();
+        }
+    }
+
+    void DecreaseIfNotChanged()
+    {
+        if (sliderValue != oldSliderValue)
+        {
+            oldSliderValue = sliderValue;
+        }
+        else
+        {
+            SeeBar.DecreaseByOne();
         }
     }
 }

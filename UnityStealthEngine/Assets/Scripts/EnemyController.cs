@@ -11,11 +11,6 @@ public class EnemyController : MonoBehaviour
     public float fieldOfViewAngle = 110f;
     private float distractionTime = 10f;
 
-    public MeshFilter viewMeshFilter;
-    Mesh viewMesh;
-    public LayerMask targetLayer;
-    public LayerMask obstacleLayer;
-
     NavMeshAgent agent;
     Transform target;
     public Transform[] points;
@@ -46,10 +41,6 @@ public class EnemyController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         GotoNextPoint();
-    }
-
-    void Update()
-    {
     }
 
     void LateUpdate()

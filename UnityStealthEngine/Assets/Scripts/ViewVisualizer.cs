@@ -31,7 +31,6 @@ namespace Vision
 
         private bool seen = false;
         public UnityEvent OnTargetFound;
-        public UnityEvent OnTargetLost;
 
         void Start()
         {
@@ -69,18 +68,12 @@ namespace Vision
 
                 if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 {
-                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) 
+                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)
                         && (target.gameObject.GetComponent<PlayerController>() != null && !target.gameObject.GetComponent<PlayerController>().isHidden))
                     {
                         OnTargetFound.Invoke();
                         visibleTargets.Add(target);
                     }
-                }
-
-                if (Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask)
-                    || (target.gameObject.GetComponent<PlayerController>() != null && target.gameObject.GetComponent<PlayerController>().isHidden))
-                {
-                    OnTargetLost.Invoke();
                 }
             }
         }
