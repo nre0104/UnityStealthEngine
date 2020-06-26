@@ -51,6 +51,7 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 	- Invector 3rd Person Controller LITE [https://assetstore.unity.com/packages/tools/utilities/third-person-controller-basic-locomotion-free-82048]
 	- ProGrids
 	- ProBuilder
+	- Icons von Icons8.de (icons8-hören-100)[https://img.icons8.com/officel/16/000000/hearing.png] & (icons8-sichtbar-100)[https://img.icons8.com/officel/16/000000/visible.png]
 
 ## Links
 ### Projektvideo
