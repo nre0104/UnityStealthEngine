@@ -30,7 +30,7 @@ namespace Assets.Scripts.Enemy
         public UnityEvent OnHearedEvent;
         public UnityEvent OnHearedLostEvent;
 
-        /*
+        /**
          *   Patrol: Moves between transforms
          *   Chase:  Chases target
          *   Search: Searches - Go to a random position
