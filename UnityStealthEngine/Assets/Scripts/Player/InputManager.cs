@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 3f))
             {
-                if (hit.collider.GetComponent<Interactable>() != null)
+                if (hit.collider.GetComponent<InteractableController>() != null)
                 {
                     hit.transform.gameObject.transform.GetComponent<EnemyController>().state = EnemyController.State.Stuned;
                     for (int i = 0; i < hit.transform.childCount; i++)

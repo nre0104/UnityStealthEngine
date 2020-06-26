@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Interactable : MonoBehaviour
+/**
+ * Defines the radius in which the object is interactable
+ */
+public class InteractableController : MonoBehaviour
 {
     public float radius = 3f;
 
