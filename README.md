@@ -12,7 +12,7 @@ Hauptsächlich haben wir uns von der Videoreihe "School of Stealth" von Game Mak
  - [3. Teil](https://www.youtube.com/watch?v=uF6c8KJuuEk) (Wurde weniger genutzt)
 
 Dabei haben wir uns das Ziel gesetzt, bei den Tools und Features unserer Projekts an [Metal Gear](https://en.wikipedia.org/wiki/Metal_Gear) zu orientieren, 
-optisch aber in Richtung von (Volume](https://en.wikipedia.org/wiki/Volume_(video_game)) zu gehen [1 Teil, 7:34 Min](https://youtu.be/Ay-5g36oFfc?t=454).
+optisch aber in Richtung von [Volume](https://en.wikipedia.org/wiki/Volume_(video_game)) zu gehen [1 Teil, 7:34 Min](https://youtu.be/Ay-5g36oFfc?t=454).
 
 ## Projektidee
 Als Basiskomponenten unserer Unity Stealth Engine haben wir einige Komponenten festgelegt. 
