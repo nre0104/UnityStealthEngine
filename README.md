@@ -2,17 +2,17 @@
 26. Juni 2020
 
 ## Team
- - Isidoros Arvanitidis [197024]
- - Nicolas Resch [197035]
+ - Isidoros Arvanitidis [197024] @Isibisi93
+ - Nicolas Resch [197035] @nre0104
 
 ## Inspiration
 Hauptsächlich haben wir uns von der Videoreihe "School of Stealth" von Game Maker's Toolkit inspirieren lassen.
- - https://www.youtube.com/watch?v=Ay-5g36oFfc [1. Teil]
- - https://www.youtube.com/watch?v=QLWC081dDpc&t=12s [2. Teil]
- - (https://www.youtube.com/watch?v=uF6c8KJuuEk [3. Teil])
+ - [1. Teil](https://www.youtube.com/watch?v=Ay-5g36oFfc)
+ - [2. Teil](https://www.youtube.com/watch?v=QLWC081dDpc&t=12s)
+ - [3. Teil](https://www.youtube.com/watch?v=uF6c8KJuuEk) (Wurde weniger genutzt)
 
-Dabei haben wir uns das Ziel gesetzt, bei den Tools und Features unserer Projekts an Metal Gear [https://en.wikipedia.org/wiki/Metal_Gear] zu orientieren, 
-optisch aber in Richtung von Volume [https://en.wikipedia.org/wiki/Volume_(video_game)] zu gehen (1 Teil, 7:34 Min [https://youtu.be/Ay-5g36oFfc?t=454]).
+Dabei haben wir uns das Ziel gesetzt, bei den Tools und Features unserer Projekts an [Metal Gear](https://en.wikipedia.org/wiki/Metal_Gear) zu orientieren, 
+optisch aber in Richtung von (Volume](https://en.wikipedia.org/wiki/Volume_(video_game)) zu gehen [1 Teil, 7:34 Min](https://youtu.be/Ay-5g36oFfc?t=454).
 
 ## Projektidee
 Als Basiskomponenten unserer Unity Stealth Engine haben wir einige Komponenten festgelegt. 
@@ -38,20 +38,20 @@ Aus dieser Veranschaulichung ergiebt sich auch, dass das Szenario vorbei ist, we
 
 ## Assets/Tutorials/Code Dritter
  - ViewVisualizier wurde mit Hilfe folgender Ressourcen erstellt:
-	Teil 1 [https://www.youtube.com/watch?v=rQG9aUWarwE]
-	Teil 2 [https://www.youtube.com/watch?v=73Dc5JTCmKI]
+	[Teil 1](https://www.youtube.com/watch?v=rQG9aUWarwE)
+	[Teil 2](https://www.youtube.com/watch?v=73Dc5JTCmKI)
  - Minimap wurde mit Hilfe folgender Ressourcen erstellt:
-	Teil 1 [https://www.youtube.com/watch?v=kWhOMJMihC0]
-	Teil 2 [https://www.youtube.com/watch?v=TOygeraCrEQ]
+	[Teil 1](https://www.youtube.com/watch?v=kWhOMJMihC0)
+	[Teil 2](https://www.youtube.com/watch?v=TOygeraCrEQ)
  - Der EnemyController wurde mit Hilfe folgender Ressourcen erstellt:
-	Unity Doc [https://docs.unity3d.com/Manual/nav-AgentPatrol.html]
-	Video [https://www.youtube.com/watch?v=db0KWYaWfeM]
+	[Unity Doc](https://docs.unity3d.com/Manual/nav-AgentPatrol.html)
+	[Video](https://www.youtube.com/watch?v=db0KWYaWfeM)
  - Assets/Packages/Imports
-	- Standard Assets [https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-for-unity-2017-3-32351]
-	- Invector 3rd Person Controller LITE [https://assetstore.unity.com/packages/tools/utilities/third-person-controller-basic-locomotion-free-82048]
+	- [Standard Assets](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-for-unity-2017-3-32351)
+	- [Invector 3rd Person Controller LITE](https://assetstore.unity.com/packages/tools/utilities/third-person-controller-basic-locomotion-free-82048)
 	- ProGrids
 	- ProBuilder
-	- Icons von Icons8.de (icons8-hören-100)[https://img.icons8.com/officel/16/000000/hearing.png] & (icons8-sichtbar-100)[https://img.icons8.com/officel/16/000000/visible.png]
+	- Icons von Icons8.de [icons8-hören-100](https://img.icons8.com/officel/16/000000/hearing.png) & [icons8-sichtbar-100](https://img.icons8.com/officel/16/000000/visible.png)
 
 ## Links
 ### Projektvideo
